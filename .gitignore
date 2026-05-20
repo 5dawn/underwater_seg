@@ -1,0 +1,55 @@
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments / local config
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+
+# IDE / OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Project data and generated outputs
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+runs/*
+checkpoints/*
+!runs/.gitkeep
+!checkpoints/.gitkeep
+
+# Logs and model artifacts
+logs/
+*.log
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Large dataset/archive formats
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.npy
+*.npz
