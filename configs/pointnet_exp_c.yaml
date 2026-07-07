@@ -4,7 +4,9 @@ data:
   processed_dir: data/processed
   num_points: 4096
   num_workers: 0
-  sample_mode: random
+  samples_per_cloud: 32
+  cache_data: true
+  sample_mode: foreground_balanced
   foreground_ratio: 0.25
   class_names: ["background", "submarine"]
   ignore_index: -1
@@ -15,13 +17,15 @@ model:
   dropout: 0.3
 
 train:
-  epochs: 30
+  epochs: 50
   batch_size: 8
   learning_rate: 0.001
   weight_decay: 0.0001
   use_class_weights: true
-  log_dir: runs/pointnet
+  class_weights: [1.0, 3.0]
+  log_dir: runs/pointnet_exp_c
   checkpoint_dir: checkpoints
+  checkpoint_prefix: pointnet_exp_c
   best_metric: submarine_iou
 
 augment:

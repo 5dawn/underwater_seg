@@ -26,6 +26,16 @@ Put labeled point clouds under:
 data/raw/
 ```
 
+For the current 13 labeled clouds, keep the first experiment simple:
+
+```text
+train: 8-9 clouds
+val:   2 clouds
+test:  2-3 clouds
+```
+
+Put the hardest and most different samples in `test`: farther range, larger view-angle changes, lower point density, turbidity, occlusion, or stronger scattering.
+
 Supported labels:
 
 - PLY/ASCII PCD field names such as `label`, `labels`, `class`, `class_id`, `seg_label`, `semantic`.
@@ -43,7 +53,34 @@ Training and evaluation ignore label `-1` in loss and metrics. Do not encode unc
 
 ## Preprocess
 
-Use xyz only:
+Use xyz only with a reproducible split file:
+
+```bash
+python src/preprocess.py --raw-dir data/raw --out-dir data/processed --features xyz --split-file splits_13.txt
+```
+
+The split file can be plain text:
+
+```text
+train sample_01.ply
+train sample_02.ply
+val sample_10.ply
+test sample_12.ply
+```
+
+or JSON:
+
+```json
+{
+  "train": ["sample_01.ply", "sample_02.ply"],
+  "val": ["sample_10.ply", "sample_11.ply"],
+  "test": ["sample_12.ply", "sample_13.ply"]
+}
+```
+
+Every raw cloud must be assigned exactly once. Entries may use filename, stem, or path relative to `data/raw`.
+
+If you intentionally want automatic random splitting, omit `--split-file`:
 
 ```bash
 python src/preprocess.py --raw-dir data/raw --out-dir data/processed --features xyz
@@ -52,7 +89,7 @@ python src/preprocess.py --raw-dir data/raw --out-dir data/processed --features 
 Use xyz plus range and intensity:
 
 ```bash
-python src/preprocess.py --raw-dir data/raw --out-dir data/processed --features xyz,intensity,range
+python src/preprocess.py --raw-dir data/raw --out-dir data/processed --features xyz,intensity,range --split-file splits_13.txt
 ```
 
 Preprocessing validates that labels contain only `-1`, `0`, and `1`. It also writes `metadata.json` with label mapping, per-split label statistics, and feature behavior. Saved `points` are normalized xyz coordinates; the optional `range` feature is computed from the raw input coordinates before centering/scaling and then normalized by the per-cloud maximum range.
@@ -65,7 +102,7 @@ Before training, inspect the processed labels:
 python src/inspect_labels.py --processed-dir data/processed
 ```
 
-This reports per-file and per-split counts for ignore/background/submarine points, flags samples with zero submarine points, and flags samples whose ignore ratio is high. The default high-ignore threshold is `0.5`; override it with:
+This reports per-file and per-split counts for ignore/background/submarine points, flags samples with zero submarine points, and flags samples whose ignore ratio is high. The default high-ignore threshold is `0.3`; override it with:
 
 ```bash
 python src/inspect_labels.py --processed-dir data/processed --ignore-threshold 0.3
@@ -73,11 +110,41 @@ python src/inspect_labels.py --processed-dir data/processed --ignore-threshold 0
 
 ## Train
 
+The default config is a 30 epoch smoke test with `best_metric: submarine_iou` and `sample_mode: random`:
+
 ```bash
 python src/train.py --config configs/pointnet.yaml
 ```
 
-The default config uses `sample_mode: foreground_balanced`, which helps each training crop include submarine points when they exist. The remaining points are sampled randomly, so ignore points may appear in a batch, but they do not contribute to the loss.
+Ignore points may appear in a sampled crop, but they do not contribute to the loss. Foreground-balanced sampling exists in the dataset code and can be enabled later by changing `sample_mode` to `foreground_balanced`; it is not required for the first smoke test.
+
+For the v2 baseline comparison, run these three fixed-split xyz experiments:
+
+```bash
+python src/train.py --config configs/pointnet_exp_a.yaml
+python src/train.py --config configs/pointnet_exp_b.yaml
+python src/train.py --config configs/pointnet_exp_c.yaml
+```
+
+- `pointnet_exp_a`: random sampling, no class weight.
+- `pointnet_exp_b`: foreground-balanced sampling, no class weight.
+- `pointnet_exp_c`: foreground-balanced sampling, mild class weight `[1, 3]`.
+
+Each experiment uses `samples_per_cloud: 32`, so one epoch has more training updates than the first smoke test.
+
+For the v3 comparison, experiments D-G use full-cloud voting validation for checkpoint selection:
+
+```bash
+python src/train.py --config configs/pointnet_exp_d.yaml
+python src/train.py --config configs/pointnet_exp_e.yaml
+python src/train.py --config configs/pointnet_exp_f.yaml
+python src/train.py --config configs/pointnet_exp_g.yaml
+```
+
+- `pointnet_exp_d`: foreground ratio 0.10, class weight `[1, 3]`.
+- `pointnet_exp_e`: foreground ratio 0.15, class weight `[1, 3]`.
+- `pointnet_exp_f`: foreground ratio 0.10, class weight `[1, 5]`.
+- `pointnet_exp_g`: foreground ratio 0.15, class weight `[1, 5]`.
 
 Best checkpoint:
 

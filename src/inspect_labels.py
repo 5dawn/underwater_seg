@@ -16,7 +16,13 @@ LABELS = {
 
 def file_stats(path: Path) -> dict[str, int | float | str]:
     data = np.load(path)
-    labels = data["labels"].astype(np.int64)
+    labels_raw = np.asarray(data["labels"]).reshape(-1)
+    if not np.all(np.isfinite(labels_raw)):
+        raise ValueError(f"Invalid non-finite labels in {path}. Allowed labels are -1, 0, 1.")
+    if not np.all(np.isclose(labels_raw, np.round(labels_raw))):
+        invalid = np.unique(labels_raw[~np.isclose(labels_raw, np.round(labels_raw))]).tolist()
+        raise ValueError(f"Non-integer labels in {path}: {invalid}. Allowed labels are -1, 0, 1.")
+    labels = labels_raw.astype(np.int64)
     total = int(len(labels))
     ignore = int(np.count_nonzero(labels == -1))
     background = int(np.count_nonzero(labels == 0))
@@ -56,7 +62,7 @@ def summarize(rows: list[dict[str, int | float | str]]) -> dict[str, int | float
 def main() -> None:
     parser = argparse.ArgumentParser(description="Inspect labels in processed .npz point cloud samples.")
     parser.add_argument("--processed-dir", default="data/processed")
-    parser.add_argument("--ignore-threshold", type=float, default=0.5)
+    parser.add_argument("--ignore-threshold", type=float, default=0.3)
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON instead of text.")
     args = parser.parse_args()
 

@@ -4,25 +4,34 @@ data:
   processed_dir: data/processed
   num_points: 4096
   num_workers: 0
-  sample_mode: random
-  foreground_ratio: 0.25
+  samples_per_cloud: 32
+  cache_data: true
+  sample_mode: foreground_balanced
+  foreground_ratio: 0.10
   class_names: ["background", "submarine"]
   ignore_index: -1
 
 model:
+  name: pointnet2
   num_classes: 2
   input_channels: auto
   dropout: 0.3
 
 train:
-  epochs: 30
-  batch_size: 8
+  epochs: 3
+  batch_size: 4
   learning_rate: 0.001
   weight_decay: 0.0001
   use_class_weights: true
-  log_dir: runs/pointnet
+  class_weights: [1.0, 3.0]
+  log_dir: runs/pointnet2_smoke
   checkpoint_dir: checkpoints
+  checkpoint_prefix: pointnet2_smoke
   best_metric: submarine_iou
+
+val:
+  mode: full_cloud
+  num_votes: 5
 
 augment:
   enabled: true

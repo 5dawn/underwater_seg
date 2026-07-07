@@ -17,6 +17,8 @@ class UnderwaterSegDataset(Dataset):
         augment_cfg: dict | None = None,
         sample_mode: str = "random",
         foreground_ratio: float = 0.25,
+        samples_per_cloud: int = 1,
+        cache_data: bool = True,
     ) -> None:
         self.root = Path(root)
         self.split = split
@@ -25,19 +27,19 @@ class UnderwaterSegDataset(Dataset):
         self.augment_cfg = augment_cfg or {}
         self.sample_mode = sample_mode
         self.foreground_ratio = foreground_ratio
+        self.samples_per_cloud = max(int(samples_per_cloud), 1)
+        self.cache_data = cache_data
+        self._cache: dict[Path, tuple[np.ndarray, np.ndarray, np.ndarray]] = {}
         self.files = sorted((self.root / split).glob("*.npz"))
         if not self.files:
             raise FileNotFoundError(f"No .npz files found in {self.root / split}")
 
     def __len__(self) -> int:
-        return len(self.files)
+        return len(self.files) * self.samples_per_cloud
 
     def __getitem__(self, idx: int) -> dict[str, torch.Tensor | str]:
-        path = self.files[idx]
-        data = np.load(path)
-        points = data["points"].astype(np.float32)
-        features = data["features"].astype(np.float32)
-        labels = data["labels"].astype(np.int64)
+        path = self.files[idx % len(self.files)]
+        points, features, labels = self._load_sample(path)
 
         choice = self._sample_indices(labels)
         points = points[choice]
@@ -53,6 +55,17 @@ class UnderwaterSegDataset(Dataset):
             "labels": torch.from_numpy(labels),
             "path": str(path),
         }
+
+    def _load_sample(self, path: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        if self.cache_data and path in self._cache:
+            return self._cache[path]
+        with np.load(path) as data:
+            points = data["points"].astype(np.float32)
+            features = data["features"].astype(np.float32)
+            labels = data["labels"].astype(np.int64)
+        if self.cache_data:
+            self._cache[path] = (points, features, labels)
+        return points, features, labels
 
     def _sample_indices(self, labels: np.ndarray) -> np.ndarray:
         n = len(labels)

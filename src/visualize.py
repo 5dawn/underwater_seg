@@ -7,7 +7,8 @@ import numpy as np
 import torch
 import yaml
 
-from model_pointnet import PointNetSeg
+from device import select_device
+from model_factory import build_model
 
 
 def load_config(path: str | Path) -> dict:
@@ -15,25 +16,58 @@ def load_config(path: str | Path) -> dict:
         return yaml.safe_load(f)
 
 
-def predict_labels(npz_path: Path, checkpoint_path: Path, cfg: dict) -> np.ndarray:
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+def add_vote(vote_logits: np.ndarray, vote_counts: np.ndarray, indices: np.ndarray, logits: torch.Tensor) -> None:
+    logits_np = logits.squeeze(0).transpose(0, 1).detach().cpu().numpy()
+    np.add.at(vote_logits, indices, logits_np)
+    np.add.at(vote_counts, indices, 1)
+
+
+def predict_labels(
+    npz_path: Path,
+    checkpoint_path: Path,
+    cfg: dict,
+    requested_device: str = "auto",
+    num_votes: int = 10,
+    num_points: int | None = None,
+) -> np.ndarray:
+    device = select_device(requested_device)
     data = np.load(npz_path)
     features_np = data["features"].astype(np.float32)
     checkpoint = torch.load(checkpoint_path, map_location=device)
     input_channels = int(checkpoint.get("input_channels", features_np.shape[1]))
     num_classes = int(checkpoint.get("num_classes", cfg["model"]["num_classes"]))
+    num_points = int(num_points or cfg["data"].get("num_points", 4096))
 
-    model = PointNetSeg(
-        input_channels=input_channels,
-        num_classes=num_classes,
-        dropout=float(cfg["model"].get("dropout", 0.3)),
-    ).to(device)
+    model_cfg = dict(checkpoint.get("config", cfg))
+    model_cfg["model"] = dict(model_cfg.get("model", cfg.get("model", {})))
+    model_cfg["model"]["name"] = checkpoint.get("model_name", model_cfg["model"].get("name", "pointnet"))
+    model = build_model(model_cfg, input_channels=input_channels, num_classes=num_classes).to(device)
     model.load_state_dict(checkpoint["model"])
     model.eval()
+
+    n = len(features_np)
+    rng = np.random.default_rng(cfg.get("seed", 42))
+    vote_logits = np.zeros((n, num_classes), dtype=np.float64)
+    vote_counts = np.zeros(n, dtype=np.int64)
+
     with torch.no_grad():
-        features = torch.from_numpy(features_np).transpose(0, 1).unsqueeze(0).to(device)
-        logits = model(features)
-        return logits.argmax(dim=1).squeeze(0).cpu().numpy().astype(np.int64)
+        for _ in range(max(int(num_votes), 1)):
+            indices = rng.choice(n, num_points, replace=n < num_points)
+            features = torch.from_numpy(features_np[indices]).transpose(0, 1).unsqueeze(0).to(device)
+            logits = model(features)
+            add_vote(vote_logits, vote_counts, indices, logits)
+
+        uncovered = np.flatnonzero(vote_counts == 0)
+        for start in range(0, len(uncovered), num_points):
+            indices = uncovered[start : start + num_points]
+            if len(indices) == 0:
+                continue
+            features = torch.from_numpy(features_np[indices]).transpose(0, 1).unsqueeze(0).to(device)
+            logits = model(features)
+            add_vote(vote_logits, vote_counts, indices, logits)
+
+    mean_logits = vote_logits / np.maximum(vote_counts[:, None], 1)
+    return mean_logits.argmax(axis=1).astype(np.int64)
 
 
 def colorize(labels: np.ndarray, mode: str) -> np.ndarray:
@@ -54,6 +88,9 @@ def main() -> None:
     parser.add_argument("--config", default="configs/pointnet.yaml")
     parser.add_argument("--checkpoint", default=None)
     parser.add_argument("--save-ply", default=None)
+    parser.add_argument("--device", default="auto", help="auto, cpu, cuda, or a torch device string.")
+    parser.add_argument("--num-votes", type=int, default=10)
+    parser.add_argument("--num-points", type=int, default=None)
     args = parser.parse_args()
 
     try:
@@ -68,7 +105,7 @@ def main() -> None:
     labels = data["labels"].astype(np.int64)
 
     if args.checkpoint:
-        labels = predict_labels(npz_path, Path(args.checkpoint), cfg)
+        labels = predict_labels(npz_path, Path(args.checkpoint), cfg, args.device, args.num_votes, args.num_points)
         mode = "pred"
     else:
         mode = "gt"

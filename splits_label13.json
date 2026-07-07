@@ -1,0 +1,21 @@
+﻿{
+    "train":  [
+                  "train/10-13-53Merged clouds.ply",
+                  "train/10-16-04Merged clouds.ply",
+                  "train/10-19-36Merged clouds.ply",
+                  "train/10-25-23Merged clouds.ply",
+                  "train/10-26-39Merged clouds.ply",
+                  "train/10-28-12Merged clouds.ply",
+                  "train/10-31-32Merged clouds.ply",
+                  "train/10-43-14Merged clouds.ply"
+              ],
+    "val":  [
+                "val/10-44-42Merged clouds.ply",
+                "val/10-46-33Merged clouds.ply"
+            ],
+    "test":  [
+                 "test/10-48-56Merged clouds.ply",
+                 "test/10-50-22Merged clouds.ply",
+                 "test/10-52-41Merged clouds.ply"
+             ]
+}

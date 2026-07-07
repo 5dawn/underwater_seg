@@ -7,7 +7,16 @@ from pathlib import Path
 import numpy as np
 
 
-LABEL_FIELDS = ("label", "labels", "class", "class_id", "seg_label", "semantic", "scalar_Label")
+LABEL_FIELDS = (
+    "label",
+    "labels",
+    "class",
+    "class_id",
+    "seg_label",
+    "semantic",
+    "scalar_Label",
+    "scalar_label",
+)
 INTENSITY_FIELDS = ("intensity", "Intensity", "reflectance", "reflectivity", "scalar_Intensity")
 VALID_LABELS = {-1, 0, 1}
 LABEL_NAMES = {-1: "ignore", 0: "background", 1: "submarine"}
@@ -219,6 +228,61 @@ def split_files(files: list[Path], train_ratio: float, val_ratio: float, seed: i
     }
 
 
+def read_split_file(split_file: Path, files: list[Path], raw_dir: Path) -> dict[str, list[Path]]:
+    """Read reproducible train/val/test assignments from JSON or text.
+
+    JSON format:
+      {"train": ["a.ply"], "val": ["b.ply"], "test": ["c.ply"]}
+
+    Text format:
+      train a.ply
+      val b.ply
+      test c.ply
+    """
+    if split_file.suffix.lower() == ".json":
+        split_spec = json.loads(split_file.read_text(encoding="utf-8-sig"))
+    else:
+        split_spec: dict[str, list[str]] = {"train": [], "val": [], "test": []}
+        for line_no, line in enumerate(split_file.read_text(encoding="utf-8-sig").splitlines(), start=1):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = line.replace(",", " ").split()
+            if len(parts) != 2 or parts[0] not in split_spec:
+                raise ValueError(f"Invalid split file line {line_no}: {line}")
+            split_spec[parts[0]].append(parts[1])
+
+    lookup: dict[str, Path] = {}
+    for path in files:
+        rel = path.relative_to(raw_dir).as_posix()
+        keys = {path.name, path.stem, rel, rel.replace("/", "\\")}
+        for key in keys:
+            if key in lookup and lookup[key] != path:
+                raise ValueError(f"Ambiguous split entry key {key!r}; use a relative path instead of a stem/name.")
+            lookup[key] = path
+
+    splits: dict[str, list[Path]] = {"train": [], "val": [], "test": []}
+    assigned: set[Path] = set()
+    for split in ("train", "val", "test"):
+        entries = split_spec.get(split, [])
+        if not isinstance(entries, list):
+            raise ValueError(f"Split {split!r} must be a list.")
+        for entry in entries:
+            key = str(entry)
+            if key not in lookup:
+                raise ValueError(f"Split entry {key!r} from {split_file} does not match any raw point cloud.")
+            path = lookup[key]
+            if path in assigned:
+                raise ValueError(f"Raw file assigned to multiple splits: {path}")
+            splits[split].append(path)
+            assigned.add(path)
+
+    missing = [str(path.relative_to(raw_dir)) for path in files if path not in assigned]
+    if missing:
+        raise ValueError(f"Split file did not assign these raw point clouds: {missing}")
+    return splits
+
+
 def process_file(
     path: Path,
     out_path: Path,
@@ -260,6 +324,7 @@ def main() -> None:
     parser.add_argument("--features", default="xyz", help="Comma-separated groups: xyz,intensity,range")
     parser.add_argument("--train-ratio", type=float, default=0.7)
     parser.add_argument("--val-ratio", type=float, default=0.15)
+    parser.add_argument("--split-file", default=None, help="Optional JSON/text file listing train/val/test raw files.")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--allow-unlabeled", action="store_true")
     args = parser.parse_args()
@@ -271,7 +336,10 @@ def main() -> None:
     if not files:
         raise FileNotFoundError(f"No .ply or .pcd files found in {raw_dir}")
 
-    splits = split_files(files, args.train_ratio, args.val_ratio, args.seed)
+    if args.split_file:
+        splits = read_split_file(Path(args.split_file), files, raw_dir)
+    else:
+        splits = split_files(files, args.train_ratio, args.val_ratio, args.seed)
     actual_feature_names: list[str] | None = None
     counts: dict[str, int] = {}
     label_counts: dict[str, dict[str, int]] = {}
@@ -301,6 +369,7 @@ def main() -> None:
         "label_mapping": {"-1": "ignore", "0": "background", "1": "submarine"},
         "class_names": ["background", "submarine"],
         "counts": counts,
+        "split_file": args.split_file,
         "label_statistics": {split: counts_with_ratios(split_counts) for split, split_counts in label_counts.items()},
         "file_label_statistics": file_label_stats,
         "source_dir": str(raw_dir),

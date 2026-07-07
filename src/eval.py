@@ -11,8 +11,9 @@ import yaml
 from tqdm import tqdm
 
 from dataset import infer_input_channels
+from device import select_device
 from metrics import confusion_matrix, metrics_from_confusion
-from model_pointnet import PointNetSeg
+from model_factory import build_model
 
 
 def load_config(path: str | Path) -> dict:
@@ -43,7 +44,7 @@ def evaluate_file(
     num_points: int,
     num_votes: int,
     rng: np.random.Generator,
-) -> tuple[np.ndarray, float, int]:
+) -> tuple[np.ndarray, float, int, dict[str, float | list[list[int]] | str]]:
     data = np.load(path)
     features_np = data["features"].astype(np.float32)
     labels_np = data["labels"].astype(np.int64)
@@ -81,7 +82,11 @@ def evaluate_file(
     mean_logits = vote_logits / np.maximum(vote_counts[:, None], 1)
     pred = mean_logits.argmax(axis=1).astype(np.int64)
     cm = confusion_matrix(pred, labels_np, num_classes)
-    return cm, total_loss, loss_batches
+    metrics = metrics_from_confusion(cm)
+    metrics["loss"] = total_loss / max(loss_batches, 1)
+    metrics["file"] = path.name
+    metrics["confusion_matrix"] = cm.tolist()
+    return cm, total_loss, loss_batches, metrics
 
 
 def main() -> None:
@@ -91,10 +96,11 @@ def main() -> None:
     parser.add_argument("--split", default="test", choices=["train", "val", "test"])
     parser.add_argument("--num-votes", type=int, default=10)
     parser.add_argument("--out", default=None)
+    parser.add_argument("--device", default="auto", help="auto, cpu, cuda, or a torch device string.")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = select_device(args.device)
     checkpoint = torch.load(args.checkpoint, map_location=device)
 
     processed_dir = cfg["data"]["processed_dir"]
@@ -103,11 +109,10 @@ def main() -> None:
     else:
         input_channels = infer_input_channels(processed_dir, split=args.split)
     num_classes = int(checkpoint.get("num_classes", cfg["model"]["num_classes"]))
-    model = PointNetSeg(
-        input_channels=input_channels,
-        num_classes=num_classes,
-        dropout=float(cfg["model"].get("dropout", 0.3)),
-    ).to(device)
+    model_cfg = dict(checkpoint.get("config", cfg))
+    model_cfg["model"] = dict(model_cfg.get("model", cfg.get("model", {})))
+    model_cfg["model"]["name"] = checkpoint.get("model_name", model_cfg["model"].get("name", "pointnet"))
+    model = build_model(model_cfg, input_channels=input_channels, num_classes=num_classes).to(device)
     model.load_state_dict(checkpoint["model"])
     model.eval()
 
@@ -118,10 +123,11 @@ def main() -> None:
     cm = np.zeros((num_classes, num_classes), dtype=np.int64)
     total_loss = 0.0
     loss_batches = 0
+    per_file_metrics = []
     rng = np.random.default_rng(cfg.get("seed", 42))
     num_votes = max(int(args.num_votes), 1)
     for path in tqdm(files, desc=f"Eval {args.split}"):
-        file_cm, file_loss, file_loss_batches = evaluate_file(
+        file_cm, file_loss, file_loss_batches, file_metrics = evaluate_file(
             model=model,
             path=path,
             device=device,
@@ -133,6 +139,7 @@ def main() -> None:
         cm += file_cm
         total_loss += file_loss
         loss_batches += file_loss_batches
+        per_file_metrics.append(file_metrics)
 
     metrics = metrics_from_confusion(cm)
     metrics["loss"] = total_loss / max(loss_batches, 1)
@@ -140,6 +147,7 @@ def main() -> None:
     metrics["num_votes"] = num_votes
     metrics["checkpoint"] = args.checkpoint
     metrics["confusion_matrix"] = cm.tolist()
+    metrics["per_file"] = per_file_metrics
 
     text = json.dumps(metrics, indent=2)
     print(text)
