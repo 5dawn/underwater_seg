@@ -1,0 +1,879 @@
+{
+  "source_dir": "label2",
+  "raw_out": "data\\raw_label2",
+  "split_out": "splits_label2.json",
+  "file_count": 39,
+  "split_counts": {
+    "train": 23,
+    "val": 5,
+    "test": 11
+  },
+  "condition_counts": {
+    "A4_strong_laser_noise": 10,
+    "C_pool_bottom": 14,
+    "S1_A1_normal": 15
+  },
+  "distance_counts": {
+    "D1": 15,
+    "D2": 15,
+    "D3": 9
+  },
+  "pose_counts": {
+    "P1": 8,
+    "P2": 8,
+    "P3": 8,
+    "P4": 8,
+    "P5": 7
+  },
+  "laser_counts": {
+    "A4": 10,
+    "A1": 29
+  },
+  "label_totals": {
+    "-1": 396432,
+    "0": 16191762,
+    "1": 1763198
+  },
+  "label_totals_by_condition": {
+    "A4_strong_laser_noise": {
+      "-1": 253827,
+      "0": 7853081,
+      "1": 519687
+    },
+    "C_pool_bottom": {
+      "-1": 42488,
+      "0": 2817783,
+      "1": 639301
+    },
+    "S1_A1_normal": {
+      "-1": 100117,
+      "0": 5520898,
+      "1": 604210
+    }
+  },
+  "stage_modes": {
+    "hardlink": 39
+  },
+  "invalid_files": [],
+  "records": [
+    {
+      "source": "label2\\A4\\R1-D1-P1-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D1-P1-S1-A4.ply",
+      "staged_name": "a4noise_R1-D1-P1-S1-A4.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 904464,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 41979,
+        "0": 778359,
+        "1": 84126
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D1-P2-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D1-P2-S1-A4.ply",
+      "staged_name": "a4noise_R1-D1-P2-S1-A4.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 1066858,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 36141,
+        "0": 945674,
+        "1": 85043
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D1-P3-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D1-P3-S1-A4.ply",
+      "staged_name": "a4noise_R1-D1-P3-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 1120169,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 42429,
+        "0": 984382,
+        "1": 93358
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D1-P4-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D1-P4-S1-A4.ply",
+      "staged_name": "a4noise_R1-D1-P4-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 1012817,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 46253,
+        "0": 874585,
+        "1": 91979
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D1-P5-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D1-P5-S1-A4.ply",
+      "staged_name": "a4noise_R1-D1-P5-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 1052466,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 42897,
+        "0": 954995,
+        "1": 54574
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D2-P1-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D2-P1-S1-A4.ply",
+      "staged_name": "a4noise_R1-D2-P1-S1-A4.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 834759,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7721,
+        "0": 806147,
+        "1": 20891
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D2-P2-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D2-P2-S1-A4.ply",
+      "staged_name": "a4noise_R1-D2-P2-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 773881,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7695,
+        "0": 743914,
+        "1": 22272
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D2-P3-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D2-P3-S1-A4.ply",
+      "staged_name": "a4noise_R1-D2-P3-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 659423,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 14694,
+        "0": 621205,
+        "1": 23524
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D2-P4-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D2-P4-S1-A4.ply",
+      "staged_name": "a4noise_R1-D2-P4-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 541154,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 6279,
+        "0": 511400,
+        "1": 23475
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\A4\\R1-D2-P5-S1-A4.ply",
+      "staged": "data\\raw_label2\\a4noise_R1-D2-P5-S1-A4.ply",
+      "staged_name": "a4noise_R1-D2-P5-S1-A4.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A4",
+      "condition": "A4_strong_laser_noise",
+      "vertex_count": 660604,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7739,
+        "0": 632420,
+        "1": 20445
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D1-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D1-P1-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D1-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 419224,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7573,
+        "0": 319129,
+        "1": 92522
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D1-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D1-P2-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D1-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 361682,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7724,
+        "0": 262781,
+        "1": 91177
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D1-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D1-P3-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D1-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 278857,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7682,
+        "0": 169831,
+        "1": 101344
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D1-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D1-P4-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D1-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 387200,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7444,
+        "0": 277422,
+        "1": 102334
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D1-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D1-P5-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D1-P5-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 214074,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7184,
+        "0": 137842,
+        "1": 69048
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D2-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D2-P1-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D2-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 270161,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 97,
+        "0": 246934,
+        "1": 23130
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D2-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D2-P2-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D2-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 222036,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 531,
+        "0": 197800,
+        "1": 23705
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D2-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D2-P3-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D2-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 254498,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 377,
+        "0": 228100,
+        "1": 26021
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D2-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D2-P4-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D2-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 203688,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 62,
+        "0": 177681,
+        "1": 25945
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D2-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D2-P5-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D2-P5-S1-A1.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 145196,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 13,
+        "0": 128801,
+        "1": 16382
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D3-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D3-P1-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D3-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 184429,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 764,
+        "0": 169247,
+        "1": 14418
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D3-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D3-P2-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D3-P2-S1-A1.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 264428,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 1412,
+        "0": 246586,
+        "1": 16430
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D3-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D3-P3-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D3-P3-S1-A1.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 141089,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 734,
+        "0": 121850,
+        "1": 18505
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\C\\R1-D3-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\poolbottom_R1-D3-P4-S1-A1.ply",
+      "staged_name": "poolbottom_R1-D3-P4-S1-A1.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "C_pool_bottom",
+      "vertex_count": 153010,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 891,
+        "0": 133779,
+        "1": 18340
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D1-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D1-P1-S1-A1.ply",
+      "staged_name": "normal_R1-D1-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 697027,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 14243,
+        "0": 600218,
+        "1": 82566
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D1-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D1-P2-S1-A1.ply",
+      "staged_name": "normal_R1-D1-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 571333,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 14751,
+        "0": 472693,
+        "1": 83889
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D1-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D1-P3-S1-A1.ply",
+      "staged_name": "normal_R1-D1-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 617815,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 13923,
+        "0": 509181,
+        "1": 94711
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D1-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D1-P4-S1-A1.ply",
+      "staged_name": "normal_R1-D1-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 735958,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 15353,
+        "0": 629988,
+        "1": 90617
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D1-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D1-P5-S1-A1.ply",
+      "staged_name": "normal_R1-D1-P5-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 513256,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 15593,
+        "0": 450464,
+        "1": 47199
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D2-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D2-P1-S1-A1.ply",
+      "staged_name": "normal_R1-D2-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 318648,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 2433,
+        "0": 294813,
+        "1": 21402
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D2-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D2-P2-S1-A1.ply",
+      "staged_name": "normal_R1-D2-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 308011,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 2662,
+        "0": 282044,
+        "1": 23305
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D2-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D2-P3-S1-A1.ply",
+      "staged_name": "normal_R1-D2-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 280774,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 1624,
+        "0": 253730,
+        "1": 25420
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D2-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D2-P4-S1-A1.ply",
+      "staged_name": "normal_R1-D2-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 294691,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 2820,
+        "0": 266271,
+        "1": 25600
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D2-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D2-P5-S1-A1.ply",
+      "staged_name": "normal_R1-D2-P5-S1-A1.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 231086,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 3185,
+        "0": 212475,
+        "1": 15426
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D3-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D3-P1-S1-A1.ply",
+      "staged_name": "normal_R1-D3-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 352815,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 744,
+        "0": 334661,
+        "1": 17410
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D3-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D3-P2-S1-A1.ply",
+      "staged_name": "normal_R1-D3-P2-S1-A1.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 271534,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 827,
+        "0": 252507,
+        "1": 18200
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D3-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D3-P3-S1-A1.ply",
+      "staged_name": "normal_R1-D3-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 461320,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 9439,
+        "0": 430931,
+        "1": 20950
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D3-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D3-P4-S1-A1.ply",
+      "staged_name": "normal_R1-D3-P4-S1-A1.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 302198,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 1257,
+        "0": 280245,
+        "1": 20696
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\R1-D3-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\normal_R1-D3-P5-S1-A1.ply",
+      "staged_name": "normal_R1-D3-P5-S1-A1.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "S1_A1_normal",
+      "vertex_count": 268759,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 1263,
+        "0": 250677,
+        "1": 16819
+      },
+      "valid": true,
+      "error": null
+    }
+  ]
+}

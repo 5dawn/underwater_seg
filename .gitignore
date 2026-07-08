@@ -28,6 +28,8 @@ Thumbs.db
 # Project data and generated outputs
 data/raw/*
 data/processed/*
+data/raw_label2/*
+data/processed_label2/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
@@ -53,3 +55,7 @@ logs/
 *.7z
 *.npy
 *.npz
+
+# Local point-cloud labeling workspaces
+label/
+label2/

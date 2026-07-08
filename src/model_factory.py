@@ -4,6 +4,7 @@ import torch
 
 from model_pointnet import PointNetSeg
 from model_pointnet2 import PointNet2Seg
+from model_dgcnn import DGCNNSeg
 
 
 def get_model_name(cfg: dict) -> str:
@@ -19,4 +20,12 @@ def build_model(cfg: dict, input_channels: int, num_classes: int) -> torch.nn.Mo
         return PointNetSeg(input_channels=input_channels, num_classes=num_classes, dropout=dropout)
     if model_name in {"pointnet2", "pointnet++"}:
         return PointNet2Seg(input_channels=input_channels, num_classes=num_classes, dropout=dropout)
+    if model_name == "dgcnn":
+        return DGCNNSeg(
+            input_channels=input_channels,
+            num_classes=num_classes,
+            dropout=dropout,
+            k=int(model_cfg.get("k", 20)),
+            emb_channels=int(model_cfg.get("emb_channels", 512)),
+        )
     raise ValueError(f"Unsupported model.name: {model_name}")

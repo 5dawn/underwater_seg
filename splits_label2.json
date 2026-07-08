@@ -1,0 +1,47 @@
+{
+  "train": [
+    "a4noise_R1-D1-P1-S1-A4.ply",
+    "a4noise_R1-D1-P2-S1-A4.ply",
+    "normal_R1-D1-P1-S1-A1.ply",
+    "normal_R1-D1-P2-S1-A1.ply",
+    "normal_R1-D1-P3-S1-A1.ply",
+    "normal_R1-D1-P4-S1-A1.ply",
+    "normal_R1-D1-P5-S1-A1.ply",
+    "normal_R1-D2-P1-S1-A1.ply",
+    "normal_R1-D2-P2-S1-A1.ply",
+    "normal_R1-D2-P3-S1-A1.ply",
+    "normal_R1-D2-P4-S1-A1.ply",
+    "normal_R1-D3-P1-S1-A1.ply",
+    "normal_R1-D3-P3-S1-A1.ply",
+    "poolbottom_R1-D1-P1-S1-A1.ply",
+    "poolbottom_R1-D1-P2-S1-A1.ply",
+    "poolbottom_R1-D1-P3-S1-A1.ply",
+    "poolbottom_R1-D1-P4-S1-A1.ply",
+    "poolbottom_R1-D1-P5-S1-A1.ply",
+    "poolbottom_R1-D2-P1-S1-A1.ply",
+    "poolbottom_R1-D2-P2-S1-A1.ply",
+    "poolbottom_R1-D2-P3-S1-A1.ply",
+    "poolbottom_R1-D2-P4-S1-A1.ply",
+    "poolbottom_R1-D3-P1-S1-A1.ply"
+  ],
+  "val": [
+    "a4noise_R1-D2-P1-S1-A4.ply",
+    "normal_R1-D2-P5-S1-A1.ply",
+    "normal_R1-D3-P2-S1-A1.ply",
+    "poolbottom_R1-D2-P5-S1-A1.ply",
+    "poolbottom_R1-D3-P2-S1-A1.ply"
+  ],
+  "test": [
+    "a4noise_R1-D1-P3-S1-A4.ply",
+    "a4noise_R1-D1-P4-S1-A4.ply",
+    "a4noise_R1-D1-P5-S1-A4.ply",
+    "a4noise_R1-D2-P2-S1-A4.ply",
+    "a4noise_R1-D2-P3-S1-A4.ply",
+    "a4noise_R1-D2-P4-S1-A4.ply",
+    "a4noise_R1-D2-P5-S1-A4.ply",
+    "normal_R1-D3-P4-S1-A1.ply",
+    "normal_R1-D3-P5-S1-A1.ply",
+    "poolbottom_R1-D3-P3-S1-A1.ply",
+    "poolbottom_R1-D3-P4-S1-A1.ply"
+  ]
+}
