@@ -147,3 +147,48 @@ Run PointNet++ exp A to completion during a long idle period. After training fin
 - worst D3 file
 
 Only after these results exist should exp B or DGCNN be run.
+## PointNet++ exp A Completed - 2026-07-08
+
+Training finished for `configs/label2_pointnet2_exp_a.yaml`.
+
+Local artifacts:
+
+- train log: `runs/label2_pointnet2_exp_a/train_console.log`
+- train stderr/progress: `runs/label2_pointnet2_exp_a/train_console.err.log`
+- best checkpoint: `checkpoints/label2_pointnet2_exp_a_best.pth`
+- last checkpoint: `checkpoints/label2_pointnet2_exp_a_last.pth`
+- test metrics: `runs/label2_pointnet2_exp_a/test_metrics.json`
+
+Validation summary:
+
+- best validation epoch: 5
+- best validation `submarine_iou`: 0.0978
+- epoch 50 validation `submarine_iou`: 0.0312
+- interpretation: later epochs became conservative on val; best checkpoint is early, not final.
+
+Test summary using best checkpoint:
+
+| metric | value |
+| --- | ---: |
+| accuracy | 0.4614 |
+| mIoU | 0.2630 |
+| submarine_iou | 0.0982 |
+| submarine_precision | 0.0988 |
+| submarine_recall | 0.9458 |
+| submarine_f1 | 0.1789 |
+| loss | 1.6243 |
+
+Difficult-group summary:
+
+| group | files | mean submarine IoU | mean precision | mean recall | worst file |
+| --- | ---: | ---: | ---: | ---: | --- |
+| A4 strong laser noise | 7 | 0.0897 | 0.0901 | 0.9218 | `a4noise_R1-D2-P2-S1-A4.npz` |
+| C pool-bottom | 2 | 0.1462 | 0.1462 | 1.0000 | `poolbottom_R1-D3-P3-S1-A1.npz` |
+| normal D3 | 2 | 0.1281 | 0.1337 | 0.7541 | `normal_R1-D3-P4-S1-A1.npz` |
+
+Decision:
+
+- PointNet++ exp A is substantially better than PointNet smoke (`submarine_iou` 0.0982 vs 0.0051).
+- The dominant failure is low precision / many false positives, not missed submarine points.
+- Do not run exp B as originally defined without reconsidering it: exp B increases foreground pressure (`foreground_ratio` 0.20, class weight `[1,5]`) and may worsen false positives.
+- Next recommended experiment should target precision: reduce false positives, review predicted PLY visualizations, and consider a milder class weight or cleaner validation split before DGCNN comparison.
