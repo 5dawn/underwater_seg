@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "data: inspect label2 labels",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": ["src\\inspect_labels.py", "--processed-dir", "data\\processed_label2"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "Validate processed label2 split statistics before training."
+    },
+    {
+      "label": "pointnet: train label2 smoke",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": ["src\\train.py", "--config", "configs\\label2_smoke.yaml"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Short PointNet smoke run; writes to runs/label2_smoke and checkpoints/label2_smoke_*.pth."
+    },
+    {
+      "label": "pointnet++: train exp_a",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": ["src\\train.py", "--config", "configs\\label2_pointnet2_exp_a.yaml"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Primary PointNet++ baseline; writes to runs/label2_pointnet2_exp_a and checkpoints/label2_pointnet2_exp_a_*.pth."
+    },
+    {
+      "label": "pointnet++: eval exp_a test",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": [
+        "src\\eval.py",
+        "--config", "configs\\label2_pointnet2_exp_a.yaml",
+        "--checkpoint", "checkpoints\\label2_pointnet2_exp_a_best.pth",
+        "--split", "test",
+        "--num-votes", "5",
+        "--out", "runs\\label2_pointnet2_exp_a\\test_metrics.json"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "Evaluate PointNet++ exp A best checkpoint on label2 test split. Requires checkpoint to exist."
+    },
+    {
+      "label": "pointnet++: train exp_b",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": ["src\\train.py", "--config", "configs\\label2_pointnet2_exp_b.yaml"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "PointNet++ fallback with stronger foreground sampling and class weight; run only if exp A is background-biased."
+    },
+    {
+      "label": "dgcnn: train exp_a",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": ["src\\train.py", "--config", "configs\\label2_dgcnn_exp_a.yaml"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "DGCNN/EdgeConv comparison; run after PointNet++ exp A has complete results."
+    },
+    {
+      "label": "dgcnn: eval exp_a test",
+      "type": "shell",
+      "command": "E:\\condaData\\envs\\uwseg\\python.exe",
+      "args": [
+        "src\\eval.py",
+        "--config", "configs\\label2_dgcnn_exp_a.yaml",
+        "--checkpoint", "checkpoints\\label2_dgcnn_exp_a_best.pth",
+        "--split", "test",
+        "--num-votes", "5",
+        "--out", "runs\\label2_dgcnn_exp_a\\test_metrics.json"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "test",
+      "problemMatcher": [],
+      "detail": "Evaluate DGCNN exp A best checkpoint on label2 test split. Requires checkpoint to exist."
+    }
+  ]
+}

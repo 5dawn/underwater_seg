@@ -21,7 +21,9 @@ ENV/
 
 # IDE / OS files
 .idea/
-.vscode/
+.vscode/*
+!.vscode/
+!.vscode/tasks.json
 .DS_Store
 Thumbs.db
 

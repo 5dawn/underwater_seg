@@ -59,6 +59,25 @@ DGCNN exp A:
 - embedding channels: 512
 - same split and training schedule as PointNet++ exp A
 
+
+## VS Code Entry Point
+
+Open this workspace with the Tool-folder VS Code installation:
+
+```powershell
+"E:\Tool\VsCode\Microsoft VS Code\bin\code.cmd" D:\underwater_seg
+```
+
+Use `Terminal: Run Task` in VS Code. Run tasks one at a time; do not start multiple long training tasks concurrently.
+
+Recommended task order:
+
+1. `data: inspect label2 labels`
+2. `pointnet++: train exp_a`
+3. `pointnet++: eval exp_a test`
+4. `pointnet++: train exp_b` only if exp A remains background-biased
+5. `dgcnn: train exp_a` only after PointNet++ exp A has complete test metrics
+
 ## Execution Commands
 
 Label check:
