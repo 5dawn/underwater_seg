@@ -2,37 +2,38 @@
   "source_dir": "label2",
   "raw_out": "data\\raw_label2",
   "split_out": "splits_label2.json",
-  "file_count": 39,
+  "file_count": 69,
   "split_counts": {
-    "train": 23,
-    "val": 5,
-    "test": 11
+    "train": 45,
+    "val": 9,
+    "test": 15
   },
   "condition_counts": {
     "A4_strong_laser_noise": 10,
     "C_pool_bottom": 14,
+    "J_rack": 30,
     "S1_A1_normal": 15
   },
   "distance_counts": {
-    "D1": 15,
-    "D2": 15,
-    "D3": 9
+    "D1": 25,
+    "D2": 25,
+    "D3": 19
   },
   "pose_counts": {
-    "P1": 8,
-    "P2": 8,
-    "P3": 8,
-    "P4": 8,
-    "P5": 7
+    "P1": 14,
+    "P2": 14,
+    "P3": 14,
+    "P4": 14,
+    "P5": 13
   },
   "laser_counts": {
     "A4": 10,
-    "A1": 29
+    "A1": 59
   },
   "label_totals": {
-    "-1": 396432,
-    "0": 16191762,
-    "1": 1763198
+    "-1": 484284,
+    "0": 26752659,
+    "1": 3051607
   },
   "label_totals_by_condition": {
     "A4_strong_laser_noise": {
@@ -45,6 +46,11 @@
       "0": 2817783,
       "1": 639301
     },
+    "J_rack": {
+      "-1": 87852,
+      "0": 10560897,
+      "1": 1288409
+    },
     "S1_A1_normal": {
       "-1": 100117,
       "0": 5520898,
@@ -52,7 +58,8 @@
     }
   },
   "stage_modes": {
-    "hardlink": 39
+    "exists": 39,
+    "hardlink": 30
   },
   "invalid_files": [],
   "records": [
@@ -556,6 +563,636 @@
         "-1": 891,
         "0": 133779,
         "1": 18340
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D1-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D1-P1-S1-A1.ply",
+      "staged_name": "rack_R1-D1-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 601289,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8369,
+        "0": 501810,
+        "1": 91110
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D1-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D1-P2-S1-A1.ply",
+      "staged_name": "rack_R1-D1-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 677623,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8017,
+        "0": 574683,
+        "1": 94923
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D1-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D1-P3-S1-A1.ply",
+      "staged_name": "rack_R1-D1-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 603769,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8330,
+        "0": 489914,
+        "1": 105525
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D1-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D1-P4-S1-A1.ply",
+      "staged_name": "rack_R1-D1-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 607883,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8212,
+        "0": 494419,
+        "1": 105252
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D1-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D1-P5-S1-A1.ply",
+      "staged_name": "rack_R1-D1-P5-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D1",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 316457,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 7095,
+        "0": 261955,
+        "1": 47407
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D2-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D2-P1-S1-A1.ply",
+      "staged_name": "rack_R1-D2-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 305563,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 228,
+        "0": 281525,
+        "1": 23810
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D2-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D2-P2-S1-A1.ply",
+      "staged_name": "rack_R1-D2-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 314622,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 248,
+        "0": 290918,
+        "1": 23456
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D2-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D2-P3-S1-A1.ply",
+      "staged_name": "rack_R1-D2-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 332532,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 159,
+        "0": 305703,
+        "1": 26670
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D2-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D2-P4-S1-A1.ply",
+      "staged_name": "rack_R1-D2-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 334817,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 139,
+        "0": 307638,
+        "1": 27040
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D2-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D2-P5-S1-A1.ply",
+      "staged_name": "rack_R1-D2-P5-S1-A1.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D2",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 257685,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 67,
+        "0": 242253,
+        "1": 15365
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D3-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D3-P1-S1-A1.ply",
+      "staged_name": "rack_R1-D3-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 296640,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 505,
+        "0": 280060,
+        "1": 16075
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D3-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D3-P2-S1-A1.ply",
+      "staged_name": "rack_R1-D3-P2-S1-A1.ply",
+      "split": "val",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 296828,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 415,
+        "0": 280468,
+        "1": 15945
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D3-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D3-P3-S1-A1.ply",
+      "staged_name": "rack_R1-D3-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 335991,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 441,
+        "0": 311883,
+        "1": 23667
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D3-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D3-P4-S1-A1.ply",
+      "staged_name": "rack_R1-D3-P4-S1-A1.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 371754,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 840,
+        "0": 351137,
+        "1": 19777
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R1-D3-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R1-D3-P5-S1-A1.ply",
+      "staged_name": "rack_R1-D3-P5-S1-A1.ply",
+      "split": "test",
+      "run": "R1",
+      "distance": "D3",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 300337,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 1137,
+        "0": 286690,
+        "1": 12510
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D1-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D1-P1-S1-A1.ply",
+      "staged_name": "rack_R2-D1-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D1",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 619869,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8243,
+        "0": 518604,
+        "1": 93022
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D1-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D1-P2-S1-A1.ply",
+      "staged_name": "rack_R2-D1-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D1",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 617039,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8326,
+        "0": 516030,
+        "1": 92683
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D1-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D1-P3-S1-A1.ply",
+      "staged_name": "rack_R2-D1-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D1",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 618826,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8078,
+        "0": 507981,
+        "1": 102767
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D1-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D1-P4-S1-A1.ply",
+      "staged_name": "rack_R2-D1-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D1",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 635771,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 8408,
+        "0": 523454,
+        "1": 103909
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D1-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D1-P5-S1-A1.ply",
+      "staged_name": "rack_R2-D1-P5-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D1",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 335544,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 6917,
+        "0": 281041,
+        "1": 47586
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D2-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D2-P1-S1-A1.ply",
+      "staged_name": "rack_R2-D2-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D2",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 404793,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 232,
+        "0": 380556,
+        "1": 24005
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D2-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D2-P2-S1-A1.ply",
+      "staged_name": "rack_R2-D2-P2-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D2",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 317689,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 228,
+        "0": 293890,
+        "1": 23571
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D2-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D2-P3-S1-A1.ply",
+      "staged_name": "rack_R2-D2-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D2",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 389605,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 168,
+        "0": 362500,
+        "1": 26937
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D2-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D2-P4-S1-A1.ply",
+      "staged_name": "rack_R2-D2-P4-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D2",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 408401,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 221,
+        "0": 381140,
+        "1": 27040
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D2-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D2-P5-S1-A1.ply",
+      "staged_name": "rack_R2-D2-P5-S1-A1.ply",
+      "split": "val",
+      "run": "R2",
+      "distance": "D2",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 221793,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 76,
+        "0": 206360,
+        "1": 15357
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D3-P1-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D3-P1-S1-A1.ply",
+      "staged_name": "rack_R2-D3-P1-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D3",
+      "pose": "P1",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 275905,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 495,
+        "0": 259336,
+        "1": 16074
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D3-P2-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D3-P2-S1-A1.ply",
+      "staged_name": "rack_R2-D3-P2-S1-A1.ply",
+      "split": "val",
+      "run": "R2",
+      "distance": "D3",
+      "pose": "P2",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 282310,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 466,
+        "0": 265910,
+        "1": 15934
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D3-P3-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D3-P3-S1-A1.ply",
+      "staged_name": "rack_R2-D3-P3-S1-A1.ply",
+      "split": "train",
+      "run": "R2",
+      "distance": "D3",
+      "pose": "P3",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 311755,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 139,
+        "0": 292172,
+        "1": 19444
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D3-P4-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D3-P4-S1-A1.ply",
+      "staged_name": "rack_R2-D3-P4-S1-A1.ply",
+      "split": "test",
+      "run": "R2",
+      "distance": "D3",
+      "pose": "P4",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 319450,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 500,
+        "0": 299892,
+        "1": 19058
+      },
+      "valid": true,
+      "error": null
+    },
+    {
+      "source": "label2\\J\\R2-D3-P5-S1-A1.ply",
+      "staged": "data\\raw_label2\\rack_R2-D3-P5-S1-A1.ply",
+      "staged_name": "rack_R2-D3-P5-S1-A1.ply",
+      "split": "test",
+      "run": "R2",
+      "distance": "D3",
+      "pose": "P5",
+      "scene": "S1",
+      "laser": "A1",
+      "condition": "J_rack",
+      "vertex_count": 224618,
+      "label_field": "scalar_label",
+      "labels": {
+        "-1": 1153,
+        "0": 210975,
+        "1": 12490
       },
       "valid": true,
       "error": null

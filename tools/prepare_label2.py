@@ -134,6 +134,8 @@ def parse_group(path: Path, root: Path) -> dict:
         group["condition"] = "C_pool_bottom"
     elif rel.parts[0] == "A4":
         group["condition"] = "A4_strong_laser_noise"
+    elif rel.parts[0] == "J":
+        group["condition"] = "J_rack"
     else:
         group["condition"] = "S1_A1_normal"
     return group
@@ -144,6 +146,7 @@ def unique_name(group: dict, original: str) -> str:
         "S1_A1_normal": "normal",
         "C_pool_bottom": "poolbottom",
         "A4_strong_laser_noise": "a4noise",
+        "J_rack": "rack",
     }[group["condition"]]
     return f"{prefix}_{original}"
 
@@ -160,6 +163,12 @@ def choose_split(group: dict) -> str:
         return "test"
     if condition == "C_pool_bottom":
         if d == "D3" and p in {"P3", "P4", "P5"}:
+            return "test"
+        if (d, p) in {("D2", "P5"), ("D3", "P2")}:
+            return "val"
+        return "train"
+    if condition == "J_rack":
+        if d == "D3" and p in {"P4", "P5"}:
             return "test"
         if (d, p) in {("D2", "P5"), ("D3", "P2")}:
             return "val"

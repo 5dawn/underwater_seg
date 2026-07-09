@@ -247,3 +247,48 @@ Decision:
 - The final checkpoint is not useful; keep selecting by best validation `submarine_iou`.
 - Next experiment should not simply reduce foreground pressure further. A better next step is to keep exp C-like mild weights, but make validation cheaper during training and add a precision-oriented loss or post-processing check after inspecting prediction PLYs.
 - A stronger GPU would help if CUDA is active, but reducing per-epoch full-cloud 5-vote validation will likely save more time immediately.
+
+## Full label2 Data Refresh - 2026-07-09
+
+The `label2/` directory now contains the completed labeled set and has been restaged/reprocessed.
+
+Condition mapping:
+
+- root `label2/*.ply`: `S1_A1_normal`, staged as `normal_*`, target on stool, 15 files
+- `label2/A4/*.ply`: `A4_strong_laser_noise`, staged as `a4noise_*`, target on stool with strong laser noise, 10 files
+- `label2/C/*.ply`: `C_pool_bottom`, staged as `poolbottom_*`, target on pool bottom, 14 files
+- `label2/J/*.ply`: `J_rack`, staged as `rack_*`, target on rack, R1/R2 x 3 distances x 5 poses, 30 files
+
+Generated artifacts:
+
+- staged raw hardlinks/copies: `data/raw_label2/` (local only)
+- processed samples: `data/processed_label2/` (local only)
+- split file: `splits_label2.json`
+- group/label report: `label2_group_report.json`
+- local refresh logs: `runs/label2_data_refresh_2026-07-09/`
+
+Dataset summary:
+
+| item | value |
+| --- | ---: |
+| total files | 69 |
+| train files | 45 |
+| val files | 9 |
+| test files | 15 |
+| ignore labels | 484,284 |
+| background labels | 26,752,659 |
+| submarine labels | 3,051,607 |
+
+Processed label check:
+
+- train: 45 files, submarine ratio 0.1243, ignore ratio 0.0150
+- val: 9 files, submarine ratio 0.0534, ignore ratio 0.0051
+- test: 15 files, submarine ratio 0.0592, ignore ratio 0.0222
+- zero-submarine samples: none
+- high-ignore samples: none
+
+Notes:
+
+- `C_pool_bottom` currently has 14 files; the expected `R1-D3-P5-S1-A1` pool-bottom sample is not present in `label2/C/`.
+- The previous PointNet++ exp A/C results were produced on the older 39-file dataset. After this refresh, future experiments should be treated as a new full-label2 dataset run.
+- Next recommended training config should point to the same `data/processed_label2`, but use a fresh run directory/checkpoint prefix such as `label2_full_pointnet2_exp_a`.
