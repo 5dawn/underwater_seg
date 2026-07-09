@@ -196,7 +196,7 @@ def build_features(
     if "intensity" in feature_names:
         intensity = extras.get("intensity")
         if intensity is None:
-            intensity = np.zeros(len(points), dtype=np.float32)
+            intensity = np.zeros(len(normalized_points), dtype=np.float32)
         intensity = intensity.astype(np.float32).reshape(-1, 1)
         std = float(intensity.std())
         if std > 0:

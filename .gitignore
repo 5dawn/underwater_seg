@@ -48,6 +48,9 @@ logs/
 *.ckpt
 *.onnx
 
+# Generated report figures
+photo/
+
 # Large dataset/archive formats
 *.zip
 *.tar
