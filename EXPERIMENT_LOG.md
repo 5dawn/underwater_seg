@@ -192,3 +192,58 @@ Decision:
 - The dominant failure is low precision / many false positives, not missed submarine points.
 - Do not run exp B as originally defined without reconsidering it: exp B increases foreground pressure (`foreground_ratio` 0.20, class weight `[1,5]`) and may worsen false positives.
 - Next recommended experiment should target precision: reduce false positives, review predicted PLY visualizations, and consider a milder class weight or cleaner validation split before DGCNN comparison.
+
+## PointNet++ exp C Completed - 2026-07-09
+
+Purpose: reduce false positives after exp A by lowering foreground pressure.
+
+Config changes from exp A:
+
+- `foreground_ratio`: 0.05
+- `class_weights`: `[1.0, 1.5]`
+- run dir: `runs/label2_pointnet2_exp_c/`
+- checkpoint prefix: `label2_pointnet2_exp_c`
+
+Local artifacts:
+
+- train log: `runs/label2_pointnet2_exp_c/train_console.log`
+- train stderr/progress: `runs/label2_pointnet2_exp_c/train_console.err.log`
+- best checkpoint: `checkpoints/label2_pointnet2_exp_c_best.pth`
+- last checkpoint: `checkpoints/label2_pointnet2_exp_c_last.pth`
+- test metrics: `runs/label2_pointnet2_exp_c/test_metrics.json`
+
+Validation summary:
+
+- training completed all 50 epochs
+- best validation epoch: 5
+- best validation `submarine_iou`: 0.1358
+- epoch 50 validation `submarine_iou`: 0.0309
+- interpretation: exp C becomes over-conservative after the early best; later epochs predict too few submarine points.
+
+Test summary using best checkpoint:
+
+| metric | exp A best | exp C best |
+| --- | ---: | ---: |
+| accuracy | 0.4614 | 0.5389 |
+| mIoU | 0.2630 | 0.3112 |
+| submarine_iou | 0.0982 | 0.1119 |
+| submarine_precision | 0.0988 | 0.1128 |
+| submarine_recall | 0.9458 | 0.9370 |
+| submarine_f1 | 0.1789 | 0.2013 |
+| loss | 1.6243 | 1.1155 |
+
+Difficult-group summary for exp C best:
+
+| group | files | mean submarine IoU | mean precision | mean recall | mean F1 | worst file |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| A4 strong laser noise | 7 | 0.1164 | 0.1186 | 0.9071 | 0.2057 | `a4noise_R1-D2-P2-S1-A4.npz` |
+| C pool-bottom | 2 | 0.1473 | 0.1482 | 0.9611 | 0.2568 | `poolbottom_R1-D3-P4-S1-A1.npz` |
+| normal D3 | 2 | 0.2029 | 0.2172 | 0.7653 | 0.3370 | `normal_R1-D3-P5-S1-A1.npz` |
+
+Decision:
+
+- exp C is modestly better than exp A on test IoU and F1, especially on A4 and normal D3.
+- It does not solve the main problem: precision remains low and false positives remain substantial.
+- The final checkpoint is not useful; keep selecting by best validation `submarine_iou`.
+- Next experiment should not simply reduce foreground pressure further. A better next step is to keep exp C-like mild weights, but make validation cheaper during training and add a precision-oriented loss or post-processing check after inspecting prediction PLYs.
+- A stronger GPU would help if CUDA is active, but reducing per-epoch full-cloud 5-vote validation will likely save more time immediately.
