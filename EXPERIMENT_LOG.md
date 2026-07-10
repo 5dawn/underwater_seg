@@ -292,3 +292,63 @@ Notes:
 - `C_pool_bottom` currently has 14 files; the expected `R1-D3-P5-S1-A1` pool-bottom sample is not present in `label2/C/`.
 - The previous PointNet++ exp A/C results were produced on the older 39-file dataset. After this refresh, future experiments should be treated as a new full-label2 dataset run.
 - Next recommended training config should point to the same `data/processed_label2`, but use a fresh run directory/checkpoint prefix such as `label2_full_pointnet2_exp_a`.
+
+## Full label2 PointNet++ exp A Completed - 2026-07-10
+
+Training finished for `configs/label2_full_pointnet2_exp_a.yaml` on the refreshed 69-file dataset.
+
+Local artifacts:
+
+- preflight label check: `runs/label2_full_pointnet2_exp_a/preflight_inspect_labels.log`
+- train log: `runs/label2_full_pointnet2_exp_a/train_console.log`
+- train stderr/progress: `runs/label2_full_pointnet2_exp_a/train_console.err.log`
+- best checkpoint: `checkpoints/label2_full_pointnet2_exp_a_best.pth`
+- last checkpoint: `checkpoints/label2_full_pointnet2_exp_a_last.pth`
+- test metrics: `runs/label2_full_pointnet2_exp_a/test_metrics.json`
+
+Config summary:
+
+- model: PointNet++
+- epochs: 50
+- train validation: full cloud, `num_votes=1`
+- final test: full cloud, `num_votes=5`
+- foreground ratio: 0.05
+- class weights: `[1.0, 1.5]`
+
+Validation summary:
+
+- training completed all 50 epochs
+- best validation epoch: 2
+- best validation `submarine_iou`: 0.1357
+- best validation precision / recall / F1: 0.1403 / 0.8047 / 0.2390
+- epoch 50 validation `submarine_iou`: 0.0144
+- epoch 50 precision / recall / F1: 0.7009 / 0.0145 / 0.0284
+- interpretation: the model again becomes strongly background-conservative after the early best; the last checkpoint should not be used.
+
+Test summary using best checkpoint:
+
+| metric | value |
+| --- | ---: |
+| accuracy | 0.5395 |
+| mIoU | 0.3107 |
+| submarine_iou | 0.1096 |
+| submarine_precision | 0.1104 |
+| submarine_recall | 0.9361 |
+| submarine_f1 | 0.1975 |
+| loss | 1.1324 |
+
+Group summary using best checkpoint:
+
+| group | files | mean submarine IoU | mean precision | mean recall | mean F1 | worst file |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| A4 strong laser noise | 7 | 0.0926 | 0.0928 | 0.9569 | 0.1685 | `a4noise_R1-D2-P3-S1-A4.npz` |
+| C pool-bottom | 2 | 0.1457 | 0.1457 | 1.0000 | 0.2543 | `poolbottom_R1-D3-P3-S1-A1.npz` |
+| J rack | 4 | 0.3611 | 0.4256 | 0.7092 | 0.5034 | `rack_R1-D3-P5-S1-A1.npz` |
+| normal stool | 2 | 0.1775 | 0.1788 | 0.9682 | 0.3005 | `normal_R1-D3-P4-S1-A1.npz` |
+
+Decision:
+
+- The refreshed full dataset baseline is valid, but the dominant issue remains low precision and many false positives at the best checkpoint.
+- `J_rack` generalizes much better than A4/C/normal, suggesting strong scene-condition dependence.
+- More epochs do not help with the current loss/sampling setup; epoch 50 has high precision only because it predicts very few submarine points.
+- Next experiment should change training strategy rather than extend training: try a recall/precision-balanced loss or validation/selection metric such as submarine F1, and inspect A4 prediction PLYs before DGCNN.
