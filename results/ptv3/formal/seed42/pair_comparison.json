@@ -1,0 +1,123 @@
+{
+  "baseline_best_epoch": 10,
+  "refine_best_epoch": 9,
+  "overall": {
+    "foreground_iou": {
+      "baseline": 0.22177316143286316,
+      "refine": 0.28096154795399575,
+      "delta": 0.05918838652113259
+    },
+    "foreground_precision": {
+      "baseline": 0.2711802981632485,
+      "refine": 0.31517256855093706,
+      "delta": 0.04399227038768855
+    },
+    "foreground_recall": {
+      "baseline": 0.5489895284466084,
+      "refine": 0.721323284199293,
+      "delta": 0.17233375575268461
+    },
+    "background_fpr": {
+      "baseline": 0.08374575573716064,
+      "refine": 0.08896096054259936,
+      "delta": 0.005215204805438717
+    }
+  },
+  "per_scene": {
+    "a4noise": {
+      "foreground_iou": {
+        "baseline": 0.11336774193548387,
+        "refine": 0.12239108627886658,
+        "delta": 0.009023344343382714
+      },
+      "foreground_precision": {
+        "baseline": 0.13435277926446976,
+        "refine": 0.13643632690850938,
+        "delta": 0.0020835476440396183
+      },
+      "foreground_recall": {
+        "baseline": 0.42056387918242305,
+        "refine": 0.5431525537312718,
+        "delta": 0.12258867454884875
+      },
+      "background_fpr": {
+        "baseline": 0.0702216841345313,
+        "refine": 0.08909045124524435,
+        "delta": 0.01886876711071306
+      }
+    },
+    "poolbottom": {
+      "foreground_iou": {
+        "baseline": 0.18169889236231715,
+        "refine": 0.15877009365858896,
+        "delta": -0.022928798703728187
+      },
+      "foreground_precision": {
+        "baseline": 0.1957051287380594,
+        "refine": 0.16915049497873558,
+        "delta": -0.02655463375932382
+      },
+      "foreground_recall": {
+        "baseline": 0.7174204559307571,
+        "refine": 0.7212300377910521,
+        "delta": 0.0038095818602950082
+      },
+      "background_fpr": {
+        "baseline": 0.25771537107038867,
+        "refine": 0.30965377064203076,
+        "delta": 0.05193839957164209
+      }
+    },
+    "rack": {
+      "foreground_iou": {
+        "baseline": 0.26333281897278243,
+        "refine": 0.5652941591920333,
+        "delta": 0.30196134021925086
+      },
+      "foreground_precision": {
+        "baseline": 0.5061486162761516,
+        "refine": 0.830049363255486,
+        "delta": 0.32390074697933435
+      },
+      "foreground_recall": {
+        "baseline": 0.3543873101068673,
+        "refine": 0.639286912349643,
+        "delta": 0.28489960224277566
+      },
+      "background_fpr": {
+        "baseline": 0.02175497064797571,
+        "refine": 0.008235250369098815,
+        "delta": -0.013519720278876894
+      }
+    }
+  },
+  "parameters": {
+    "baseline": {
+      "total": 46154402,
+      "trainable": 46154402,
+      "refine": 0
+    },
+    "refine": {
+      "total": 46157666,
+      "trainable": 46157666,
+      "refine": 3264
+    },
+    "delta_total": 3264
+  },
+  "runtime_and_memory": {
+    "baseline_train_seconds_total": 348.93615302210674,
+    "refine_train_seconds_total": 459.4263572071213,
+    "baseline_peak_reserved_bytes": 2728394752,
+    "refine_peak_reserved_bytes": 2711617536
+  },
+  "gates": {
+    "foreground_iou_delta_at_least_0.01": true,
+    "background_fpr_strictly_lower": false,
+    "precision_not_lower": true,
+    "recall_delta_at_least_minus_0.03": true,
+    "a4noise_iou_delta_at_least_minus_0.01": true,
+    "a4noise_recall_delta_at_least_minus_0.03": true
+  },
+  "all_gates_passed": false,
+  "next_stage": "stop_without_ablation_or_multiseed"
+}

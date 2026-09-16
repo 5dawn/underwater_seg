@@ -1,0 +1,102 @@
+[
+  {
+    "epoch": 0,
+    "batch": 0,
+    "fingerprint": "7a99c09a358860172c56b761190be281b95e4b274fd1476410212c083a7ee40e"
+  },
+  {
+    "epoch": 0,
+    "batch": 1,
+    "fingerprint": "ca0f1d75ad8beb40b2198a6a07d6f438028ce44a5b1fa7da52e435c7c57569d8"
+  },
+  {
+    "epoch": 1,
+    "batch": 0,
+    "fingerprint": "e4c3dbe5226a85a92769d95551ce0ee3625d987514bcaf547833bd82a9e40c94"
+  },
+  {
+    "epoch": 1,
+    "batch": 1,
+    "fingerprint": "b69e162ba256b369d005aed907a2b797121e05abb9af96c310e69ae8859d85f0"
+  },
+  {
+    "epoch": 2,
+    "batch": 0,
+    "fingerprint": "024c760fcbdbe06f4426e244e1643034ec6b9cba49185f49de411016e5ff598b"
+  },
+  {
+    "epoch": 2,
+    "batch": 1,
+    "fingerprint": "a62bee3daf905993e673ebab92bdb6c08d8a35d12cee42a13039e3ad1ef390a8"
+  },
+  {
+    "epoch": 3,
+    "batch": 0,
+    "fingerprint": "1fa7f289c09e5b670b8a3fbd0be945ecb235ab900f60d83d0fef6384722c9855"
+  },
+  {
+    "epoch": 3,
+    "batch": 1,
+    "fingerprint": "4c82312a177bd60615c535f6c540dd3dc6b1233aada7d990e2f072280d235ea7"
+  },
+  {
+    "epoch": 4,
+    "batch": 0,
+    "fingerprint": "fcbf15a825bb14e43f4e374017448a969455fe3ca97dc1945ff338ea56effdc0"
+  },
+  {
+    "epoch": 4,
+    "batch": 1,
+    "fingerprint": "d9018cb4f169ef6ffb45e598f66204d86bd85ac5c9c5fa0ba5035f228329a3bc"
+  },
+  {
+    "epoch": 5,
+    "batch": 0,
+    "fingerprint": "bf8a50ab9c4019ed957ee4c61c18f127d6bfc15266c47cf10a346ed97e8e71b7"
+  },
+  {
+    "epoch": 5,
+    "batch": 1,
+    "fingerprint": "e493bc2b391017246837e2d077d9b48c656ac563f5fae06d03667b07803e2537"
+  },
+  {
+    "epoch": 6,
+    "batch": 0,
+    "fingerprint": "93ea27f6413d4c0398c8bad20fae2ce5c4176b415b9452601308f23f9d0260a3"
+  },
+  {
+    "epoch": 6,
+    "batch": 1,
+    "fingerprint": "9ff690000b2c847ed82d2b9eafebbee5241e65e8b479e9286e8c35ff059e56c7"
+  },
+  {
+    "epoch": 7,
+    "batch": 0,
+    "fingerprint": "9a1bcc79dfeea9b19ec806e531e9caeaad1fe882c1c0a32347aa026133ac31a9"
+  },
+  {
+    "epoch": 7,
+    "batch": 1,
+    "fingerprint": "8073226b893a34b8e13c0bce98d5213eb2631fe22399329284f4ef8e9623c6dd"
+  },
+  {
+    "epoch": 8,
+    "batch": 0,
+    "fingerprint": "97734a8e4fd2db50f33f53d9f0a19be63d8d2d1bb92d6ef9de85b473e383d108"
+  },
+  {
+    "epoch": 8,
+    "batch": 1,
+    "fingerprint": "574d774a929555a026bfc1488714a89a6ba46eb01bb44c087a237da6c27efd6e"
+  },
+  {
+    "epoch": 9,
+    "batch": 0,
+    "fingerprint": "bde35a177e9bc122fb692387c9103e876d653ffc39ca82cde03f6fdbb8cd58f8"
+  },
+  {
+    "epoch": 9,
+    "batch": 1,
+    "fingerprint": "8830fb1ba02692b5a9637f6a81837516d205b5479934b049c415e1d110ceb4cb"
+  }
+]

@@ -59,7 +59,10 @@ def _morton_codes(points: np.ndarray, vote: int) -> np.ndarray:
 
 
 def spatial_cover(points: np.ndarray, block_points: int, vote: int) -> list[np.ndarray]:
-    order = np.argsort(_morton_codes(points, vote), kind="stable")
+    codes = _morton_codes(points, vote)
+    # lexsort uses the last key as primary: Morton first, then exact XYZ as a
+    # deterministic tie-breaker independent of input row order.
+    order = np.lexsort((points[:, 2], points[:, 1], points[:, 0], codes))
     return [order[start : start + block_points] for start in range(0, len(order), block_points)]
 
 
@@ -72,6 +75,7 @@ def evaluate_ptv3_full_cloud(
     block_points: int = 4096,
     batch_size: int = 4,
     eval_seed: int = 1001,
+    save_predictions: bool = False,
 ) -> dict:
     if votes != 5:
         raise ValueError("the frozen protocol requires exactly 5 complete-cover votes")
@@ -91,22 +95,24 @@ def evaluate_ptv3_full_cloud(
                     labels = data["labels"].astype(np.int64)
                 logits_sum = np.zeros((len(points), 2), dtype=np.float64)
                 counts = np.zeros(len(points), dtype=np.int16)
-                tasks: list[tuple[np.ndarray, int]] = []
+                tasks: list[np.ndarray] = []
                 for vote in range(votes):
                     for indices in spatial_cover(points, block_points, vote):
-                        valid = len(indices)
-                        if valid < block_points:
-                            pad = np.resize(indices, block_points - valid)
-                            indices = np.concatenate((indices, pad))
-                        tasks.append((indices, valid))
-                for start in range(0, len(tasks), batch_size):
-                    group = tasks[start : start + batch_size]
-                    batch = torch.from_numpy(np.stack([points[idx] for idx, _ in group])).transpose(1, 2).to(device)
-                    output = model(batch).transpose(1, 2).float().cpu().numpy()
-                    for row, (indices, valid) in enumerate(group):
-                        original = indices[:valid]
-                        logits_sum[original] += output[row, :valid]
-                        counts[original] += 1
+                        tasks.append(indices)
+                # Batch only equal-length blocks. Tails run at their actual
+                # length so repeated padding points cannot alter neighborhoods.
+                grouped: dict[int, list[np.ndarray]] = defaultdict(list)
+                for indices in tasks:
+                    grouped[len(indices)].append(indices)
+                for length in sorted(grouped, reverse=True):
+                    same_length = grouped[length]
+                    for start in range(0, len(same_length), batch_size):
+                        group = same_length[start : start + batch_size]
+                        batch = torch.from_numpy(np.stack([points[idx] for idx in group])).transpose(1, 2).to(device)
+                        output = model(batch).transpose(1, 2).float().cpu().numpy()
+                        for row, indices in enumerate(group):
+                            logits_sum[indices] += output[row]
+                            counts[indices] += 1
                 if counts.min() < votes or counts.max() != votes:
                     raise AssertionError(f"incomplete coverage for {path.name}: {counts.min()}..{counts.max()}")
                 prediction = (logits_sum / counts[:, None]).argmax(1)
@@ -114,6 +120,12 @@ def evaluate_ptv3_full_cloud(
                 metrics = _binary_metrics(cm)
                 metrics.update(file=path.name, coverage_min=int(counts.min()), coverage_max=int(counts.max()), confusion_matrix=cm.tolist())
                 np.save(out_dir / f"{path.stem}_vote_counts.npy", counts)
+                if save_predictions:
+                    np.savez_compressed(
+                        out_dir / f"{path.stem}_predictions.npz",
+                        prediction=prediction.astype(np.int8),
+                        labels=labels.astype(np.int8),
+                    )
                 per_file.append(metrics)
                 overall += cm
                 scene_cms[path.name.split("_", 1)[0]] += cm

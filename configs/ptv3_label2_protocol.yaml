@@ -42,6 +42,8 @@ model:
 train:
   epochs: 10
   batch_size: 4
+  samples_per_cloud: 32
+  updates_per_epoch: 360
   optimizer: AdamW
   learning_rate: 0.001
   only_learning_rate_correction: 0.0003

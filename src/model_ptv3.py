@@ -1,12 +1,37 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from contextlib import contextmanager
+import random
 from typing import Callable
 
+import numpy as np
 import torch
 from torch import nn
 
 from ptv3_protocol import UnderwaterLocalFeatureRefine, voxelize_xyz
+
+
+@contextmanager
+def isolated_rng(seed: int):
+    """Seed all model-construction RNG domains, then restore their exact states."""
+    python_state = random.getstate()
+    numpy_state = deepcopy(np.random.get_state())
+    cpu_state = torch.get_rng_state().clone()
+    cuda_states = torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None
+    try:
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(seed)
+        yield
+    finally:
+        random.setstate(python_state)
+        np.random.set_state(numpy_state)
+        torch.set_rng_state(cpu_state)
+        if cuda_states is not None:
+            torch.cuda.set_rng_state_all(cuda_states)
 
 
 def _extract_features(output) -> torch.Tensor:
@@ -72,12 +97,10 @@ def paired_models(
     refine_seed: int,
 ) -> tuple[OfficialPTv3Seg, OfficialPTv3Seg]:
     """Create A/B from one public snapshot without perturbing the global RNG."""
-    with torch.random.fork_rng(devices=[]):
-        torch.manual_seed(public_seed)
+    with isolated_rng(public_seed):
         baseline = OfficialPTv3Seg(backbone_factory(), decoder_channels, voxel_size=voxel_size)
     common = deepcopy(baseline.state_dict())
-    with torch.random.fork_rng(devices=[]):
-        torch.manual_seed(refine_seed)
+    with isolated_rng(refine_seed):
         refined = OfficialPTv3Seg(
             backbone_factory(), decoder_channels, voxel_size=voxel_size,
             refine=UnderwaterLocalFeatureRefine(decoder_channels, radius),

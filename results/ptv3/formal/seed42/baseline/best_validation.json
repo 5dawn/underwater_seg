@@ -1,0 +1,524 @@
+{
+  "accuracy": 0.8965282039322399,
+  "mIoU": 0.5575788177359585,
+  "class_0_iou": 0.8933844740390539,
+  "class_0_precision": 0.9728205820784658,
+  "class_0_recall": 0.9162542442628393,
+  "class_0_f1": 0.9436905037393124,
+  "class_1_iou": 0.22177316143286316,
+  "class_1_precision": 0.2711802981632485,
+  "class_1_recall": 0.5489895284466084,
+  "class_1_f1": 0.3630349207749391,
+  "foreground_iou": 0.22177316143286316,
+  "foreground_precision": 0.2711802981632485,
+  "foreground_recall": 0.5489895284466084,
+  "foreground_f1": 0.3630349207749391,
+  "submarine_iou": 0.22177316143286316,
+  "submarine_precision": 0.2711802981632485,
+  "submarine_recall": 0.5489895284466084,
+  "submarine_f1": 0.3630349207749391,
+  "TN": 2420292,
+  "FP": 221215,
+  "FN": 67620,
+  "TP": 82310,
+  "background_fpr": 0.08374575573716064,
+  "confusion_matrix": [
+    [
+      2420292,
+      221215
+    ],
+    [
+      67620,
+      82310
+    ]
+  ],
+  "votes": 5,
+  "eval_seed": 1001,
+  "raw_argmax": true,
+  "per_file": [
+    {
+      "accuracy": 0.9169155468067973,
+      "mIoU": 0.514695583740824,
+      "class_0_iou": 0.9160234255461642,
+      "class_0_precision": 0.9841067271674525,
+      "class_0_recall": 0.9297783158654687,
+      "class_0_f1": 0.9561714260200664,
+      "class_1_iou": 0.11336774193548387,
+      "class_1_precision": 0.13435277926446976,
+      "class_1_recall": 0.42056387918242305,
+      "class_1_f1": 0.20364833229029045,
+      "foreground_iou": 0.11336774193548387,
+      "foreground_precision": 0.13435277926446976,
+      "foreground_recall": 0.42056387918242305,
+      "foreground_f1": 0.20364833229029045,
+      "submarine_iou": 0.11336774193548387,
+      "submarine_precision": 0.13435277926446976,
+      "submarine_recall": 0.42056387918242305,
+      "submarine_f1": 0.20364833229029045,
+      "TN": 749538,
+      "FP": 56609,
+      "FN": 12105,
+      "TP": 8786,
+      "background_fpr": 0.0702216841345313,
+      "file": "a4noise_R1-D2-P1-S1-A4.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          749538,
+          56609
+        ],
+        [
+          12105,
+          8786
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.9102724428589607,
+      "mIoU": 0.6451159179446483,
+      "class_0_iou": 0.9049250754359944,
+      "class_0_precision": 0.9867776639863721,
+      "class_0_recall": 0.916032474408754,
+      "class_0_f1": 0.9500899401294064,
+      "class_1_iou": 0.3853067604533021,
+      "class_1_precision": 0.41808278156495643,
+      "class_1_recall": 0.8309347854272008,
+      "class_1_f1": 0.5562764456981664,
+      "foreground_iou": 0.3853067604533021,
+      "foreground_precision": 0.41808278156495643,
+      "foreground_recall": 0.8309347854272008,
+      "foreground_f1": 0.5562764456981664,
+      "submarine_iou": 0.3853067604533021,
+      "submarine_precision": 0.41808278156495643,
+      "submarine_recall": 0.8309347854272008,
+      "submarine_f1": 0.5562764456981664,
+      "TN": 194634,
+      "FP": 17841,
+      "FN": 2608,
+      "TP": 12818,
+      "background_fpr": 0.08396752559124603,
+      "file": "normal_R1-D2-P5-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          194634,
+          17841
+        ],
+        [
+          2608,
+          12818
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.883287096380958,
+      "mIoU": 0.5990480676917349,
+      "class_0_iou": 0.8764497939200551,
+      "class_0_precision": 0.9858412139872443,
+      "class_0_recall": 0.8876229173844685,
+      "class_0_f1": 0.9341574677455992,
+      "class_1_iou": 0.32164634146341464,
+      "class_1_precision": 0.34552667389348896,
+      "class_1_recall": 0.8231318681318681,
+      "class_1_f1": 0.48673587081891584,
+      "foreground_iou": 0.32164634146341464,
+      "foreground_precision": 0.34552667389348896,
+      "foreground_recall": 0.8231318681318681,
+      "foreground_f1": 0.48673587081891584,
+      "submarine_iou": 0.32164634146341464,
+      "submarine_precision": 0.34552667389348896,
+      "submarine_recall": 0.8231318681318681,
+      "submarine_f1": 0.48673587081891584,
+      "TN": 224131,
+      "FP": 28376,
+      "FN": 3219,
+      "TP": 14981,
+      "background_fpr": 0.11237708261553145,
+      "file": "normal_R1-D3-P2-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          224131,
+          28376
+        ],
+        [
+          3219,
+          14981
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.3740796098716792,
+      "mIoU": 0.22322954431542374,
+      "class_0_iou": 0.2961365079856862,
+      "class_0_precision": 0.9920857335616794,
+      "class_0_recall": 0.2968377574708271,
+      "class_0_f1": 0.4569526529978068,
+      "class_1_iou": 0.1503225806451613,
+      "class_1_precision": 0.15075249660087206,
+      "class_1_recall": 0.9813820046392382,
+      "class_1_f1": 0.2613572630398205,
+      "foreground_iou": 0.1503225806451613,
+      "foreground_precision": 0.15075249660087206,
+      "foreground_recall": 0.9813820046392382,
+      "foreground_f1": 0.2613572630398205,
+      "submarine_iou": 0.1503225806451613,
+      "submarine_precision": 0.15075249660087206,
+      "submarine_recall": 0.9813820046392382,
+      "submarine_f1": 0.2613572630398205,
+      "TN": 38233,
+      "FP": 90568,
+      "FN": 305,
+      "TP": 16077,
+      "background_fpr": 0.7031622425291729,
+      "file": "poolbottom_R1-D2-P5-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          38233,
+          90568
+        ],
+        [
+          305,
+          16077
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.942429357909785,
+      "mIoU": 0.6354481502173436,
+      "class_0_iou": 0.9407481031332052,
+      "class_0_precision": 0.9640425378341313,
+      "class_0_recall": 0.9749580268141743,
+      "class_0_f1": 0.9694695582743909,
+      "class_1_iou": 0.330148197301482,
+      "class_1_precision": 0.5472210001466491,
+      "class_1_recall": 0.45423006695069995,
+      "class_1_f1": 0.4964081415458294,
+      "foreground_iou": 0.330148197301482,
+      "foreground_precision": 0.5472210001466491,
+      "foreground_recall": 0.45423006695069995,
+      "foreground_f1": 0.4964081415458294,
+      "submarine_iou": 0.330148197301482,
+      "submarine_precision": 0.5472210001466491,
+      "submarine_recall": 0.45423006695069995,
+      "submarine_f1": 0.4964081415458294,
+      "TN": 240411,
+      "FP": 6175,
+      "FN": 8967,
+      "TP": 7463,
+      "background_fpr": 0.025041973185825635,
+      "file": "poolbottom_R1-D3-P2-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          240411,
+          6175
+        ],
+        [
+          8967,
+          7463
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.9482140223121055,
+      "mIoU": 0.5512476109708954,
+      "class_0_iou": 0.9477182325854806,
+      "class_0_precision": 0.9492769552041954,
+      "class_0_recall": 0.9982704032561001,
+      "class_0_f1": 0.9731574277326971,
+      "class_1_iou": 0.15477698935631018,
+      "class_1_precision": 0.8535988819007687,
+      "class_1_recall": 0.15899772209567198,
+      "class_1_f1": 0.2680638613046579,
+      "foreground_iou": 0.15477698935631018,
+      "foreground_precision": 0.8535988819007687,
+      "foreground_recall": 0.15899772209567198,
+      "foreground_f1": 0.2680638613046579,
+      "submarine_iou": 0.15477698935631018,
+      "submarine_precision": 0.8535988819007687,
+      "submarine_recall": 0.15899772209567198,
+      "submarine_f1": 0.2680638613046579,
+      "TN": 241834,
+      "FP": 419,
+      "FN": 12922,
+      "TP": 2443,
+      "background_fpr": 0.0017295967438999723,
+      "file": "rack_R1-D2-P5-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          241834,
+          419
+        ],
+        [
+          12922,
+          2443
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.9505386066063229,
+      "mIoU": 0.5443212805618889,
+      "class_0_iou": 0.950142149794597,
+      "class_0_precision": 0.9536218824983019,
+      "class_0_recall": 0.9961742516080266,
+      "class_0_f1": 0.9744337354019786,
+      "class_1_iou": 0.13850041132918087,
+      "class_1_precision": 0.6871720116618075,
+      "class_1_recall": 0.1478206334274067,
+      "class_1_f1": 0.24330322580645158,
+      "foreground_iou": 0.13850041132918087,
+      "foreground_precision": 0.6871720116618075,
+      "foreground_recall": 0.1478206334274067,
+      "foreground_f1": 0.24330322580645158,
+      "submarine_iou": 0.13850041132918087,
+      "submarine_precision": 0.6871720116618075,
+      "submarine_recall": 0.1478206334274067,
+      "submarine_f1": 0.24330322580645158,
+      "TN": 279395,
+      "FP": 1073,
+      "FN": 13588,
+      "TP": 2357,
+      "background_fpr": 0.003825748391973416,
+      "file": "rack_R1-D3-P2-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          279395,
+          1073
+        ],
+        [
+          13588,
+          2357
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.9727039424130761,
+      "mIoU": 0.8245789191681381,
+      "class_0_iou": 0.9710384893308512,
+      "class_0_precision": 0.9873152265937467,
+      "class_0_recall": 0.9833058732312464,
+      "class_0_f1": 0.985306471270898,
+      "class_1_iou": 0.6781193490054249,
+      "class_1_precision": 0.7872800246989812,
+      "class_1_recall": 0.8302402813049423,
+      "class_1_f1": 0.8081896551724138,
+      "foreground_iou": 0.6781193490054249,
+      "foreground_precision": 0.7872800246989812,
+      "foreground_recall": 0.8302402813049423,
+      "foreground_f1": 0.8081896551724138,
+      "submarine_iou": 0.6781193490054249,
+      "submarine_precision": 0.7872800246989812,
+      "submarine_recall": 0.8302402813049423,
+      "submarine_f1": 0.8081896551724138,
+      "TN": 202915,
+      "FP": 3445,
+      "FN": 2607,
+      "TP": 12750,
+      "background_fpr": 0.016694126768753634,
+      "file": "rack_R2-D2-P5-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          202915,
+          3445
+        ],
+        [
+          2607,
+          12750
+        ]
+      ]
+    },
+    {
+      "accuracy": 0.900625878145357,
+      "mIoU": 0.5204774726009374,
+      "class_0_iou": 0.8989643193402812,
+      "class_0_precision": 0.9566257197696737,
+      "class_0_recall": 0.9371629498702568,
+      "class_0_f1": 0.946794323816037,
+      "class_1_iou": 0.1419906258615936,
+      "class_1_precision": 0.21715704647676162,
+      "class_1_recall": 0.29088741056859546,
+      "class_1_f1": 0.2486721390632545,
+      "foreground_iou": 0.1419906258615936,
+      "foreground_precision": 0.21715704647676162,
+      "foreground_recall": 0.29088741056859546,
+      "foreground_f1": 0.2486721390632545,
+      "submarine_iou": 0.1419906258615936,
+      "submarine_precision": 0.21715704647676162,
+      "submarine_recall": 0.29088741056859546,
+      "submarine_f1": 0.2486721390632545,
+      "TN": 249201,
+      "FP": 16709,
+      "FN": 11299,
+      "TP": 4635,
+      "background_fpr": 0.06283705012974315,
+      "file": "rack_R2-D3-P2-S1-A1.npz",
+      "coverage_min": 5,
+      "coverage_max": 5,
+      "confusion_matrix": [
+        [
+          249201,
+          16709
+        ],
+        [
+          11299,
+          4635
+        ]
+      ]
+    }
+  ],
+  "per_scene": {
+    "a4noise": {
+      "accuracy": 0.9169155468067973,
+      "mIoU": 0.514695583740824,
+      "class_0_iou": 0.9160234255461642,
+      "class_0_precision": 0.9841067271674525,
+      "class_0_recall": 0.9297783158654687,
+      "class_0_f1": 0.9561714260200664,
+      "class_1_iou": 0.11336774193548387,
+      "class_1_precision": 0.13435277926446976,
+      "class_1_recall": 0.42056387918242305,
+      "class_1_f1": 0.20364833229029045,
+      "foreground_iou": 0.11336774193548387,
+      "foreground_precision": 0.13435277926446976,
+      "foreground_recall": 0.42056387918242305,
+      "foreground_f1": 0.20364833229029045,
+      "submarine_iou": 0.11336774193548387,
+      "submarine_precision": 0.13435277926446976,
+      "submarine_recall": 0.42056387918242305,
+      "submarine_f1": 0.20364833229029045,
+      "TN": 749538,
+      "FP": 56609,
+      "FN": 12105,
+      "TP": 8786,
+      "background_fpr": 0.0702216841345313,
+      "confusion_matrix": [
+        [
+          749538,
+          56609
+        ],
+        [
+          12105,
+          8786
+        ]
+      ]
+    },
+    "normal": {
+      "accuracy": 0.8956214100054551,
+      "mIoU": 0.6188145715068814,
+      "class_0_iou": 0.8894583578478746,
+      "class_0_precision": 0.98627623695218,
+      "class_0_recall": 0.9006047545926509,
+      "class_0_f1": 0.9414955922722562,
+      "class_1_iou": 0.34817078516588806,
+      "class_1_precision": 0.37558095546908776,
+      "class_1_recall": 0.8267114732647356,
+      "class_1_f1": 0.5165084260790397,
+      "foreground_iou": 0.34817078516588806,
+      "foreground_precision": 0.37558095546908776,
+      "foreground_recall": 0.8267114732647356,
+      "foreground_f1": 0.5165084260790397,
+      "submarine_iou": 0.34817078516588806,
+      "submarine_precision": 0.37558095546908776,
+      "submarine_recall": 0.8267114732647356,
+      "submarine_f1": 0.5165084260790397,
+      "TN": 418765,
+      "FP": 46217,
+      "FN": 5827,
+      "TP": 27799,
+      "background_fpr": 0.0993952454073491,
+      "confusion_matrix": [
+        [
+          418765,
+          46217
+        ],
+        [
+          5827,
+          27799
+        ]
+      ]
+    },
+    "poolbottom": {
+      "accuracy": 0.7402859879617539,
+      "mIoU": 0.4530455731403614,
+      "class_0_iou": 0.7243922539184057,
+      "class_0_precision": 0.9677961627696967,
+      "class_0_recall": 0.7422846289296113,
+      "class_0_f1": 0.8401710832002871,
+      "class_1_iou": 0.18169889236231715,
+      "class_1_precision": 0.1957051287380594,
+      "class_1_recall": 0.7174204559307571,
+      "class_1_f1": 0.30752147359482673,
+      "foreground_iou": 0.18169889236231715,
+      "foreground_precision": 0.1957051287380594,
+      "foreground_recall": 0.7174204559307571,
+      "foreground_f1": 0.30752147359482673,
+      "submarine_iou": 0.18169889236231715,
+      "submarine_precision": 0.1957051287380594,
+      "submarine_recall": 0.7174204559307571,
+      "submarine_f1": 0.30752147359482673,
+      "TN": 278644,
+      "FP": 96743,
+      "FN": 9272,
+      "TP": 23540,
+      "background_fpr": 0.25771537107038867,
+      "confusion_matrix": [
+        [
+          278644,
+          96743
+        ],
+        [
+          9272,
+          23540
+        ]
+      ]
+    },
+    "rack": {
+      "accuracy": 0.9413176347778728,
+      "mIoU": 0.6016965522225327,
+      "class_0_iou": 0.9400602854722829,
+      "class_0_precision": 0.9601326150838314,
+      "class_0_recall": 0.9782450293520243,
+      "class_0_f1": 0.9691042000207093,
+      "class_1_iou": 0.26333281897278243,
+      "class_1_precision": 0.5061486162761516,
+      "class_1_recall": 0.3543873101068673,
+      "class_1_f1": 0.4168858989777511,
+      "foreground_iou": 0.26333281897278243,
+      "foreground_precision": 0.5061486162761516,
+      "foreground_recall": 0.3543873101068673,
+      "foreground_f1": 0.4168858989777511,
+      "submarine_iou": 0.26333281897278243,
+      "submarine_precision": 0.5061486162761516,
+      "submarine_recall": 0.3543873101068673,
+      "submarine_f1": 0.4168858989777511,
+      "TN": 973345,
+      "FP": 21646,
+      "FN": 40416,
+      "TP": 22185,
+      "background_fpr": 0.02175497064797571,
+      "confusion_matrix": [
+        [
+          973345,
+          21646
+        ],
+        [
+          40416,
+          22185
+        ]
+      ]
+    }
+  }
+}

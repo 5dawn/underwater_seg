@@ -1,0 +1,98 @@
+{
+  "protocol_version": "ptv3_underwater_refine_v1",
+  "seed": 42,
+  "eval_seed": 1001,
+  "historical_test_policy": "forbidden_for_selection",
+  "official_source": {
+    "repository": "https://github.com/Pointcept/PointTransformerV3.git",
+    "checkout": "3229e9b7de1770c8ad17c316f8e349982de509f8",
+    "local_path": "/root/autodl-tmp/underwater_seg_ptv3/third_party/PointTransformerV3",
+    "acquisition": "official_github_codeload_archive_and_official_api_commit"
+  },
+  "data": {
+    "processed_dir": "data/processed_label2",
+    "split_file": "splits_label2.json",
+    "expected_counts": {
+      "train": 45,
+      "val": 9,
+      "test": 15
+    },
+    "num_points": 4096,
+    "features": "xyz",
+    "ignore_index": -1,
+    "sampling": "random"
+  },
+  "voxel": {
+    "initial_size": 0.005,
+    "selected_size": 0.005,
+    "maximum_corrections": 1
+  },
+  "radius": {
+    "k": 16,
+    "selected_p95_d16": 0.05208010460155825,
+    "query_chunk_size": 512
+  },
+  "model": {
+    "name": "official_ptv3",
+    "num_classes": 2,
+    "decoder_channels": 64,
+    "refine": false,
+    "underwater_refine": {
+      "enabled": false
+    },
+    "refine_zero_D": false,
+    "refine_zero_G": false,
+    "classifier": "Linear(C,2)"
+  },
+  "train": {
+    "epochs": 10,
+    "batch_size": 4,
+    "samples_per_cloud": 32,
+    "updates_per_epoch": 360,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "only_learning_rate_correction": 0.0003,
+    "weight_decay": 0.05,
+    "scheduler": "linear_warmup_epoch1_then_cosine",
+    "best_metric": "foreground_iou"
+  },
+  "augment": {
+    "rotate_z": true,
+    "scale_min": 0.95,
+    "scale_max": 1.05,
+    "jitter_std": 0.005,
+    "jitter_clip": 0.02,
+    "point_dropout": 0.05
+  },
+  "evaluation": {
+    "split": "val",
+    "raw_argmax": true,
+    "votes": 5,
+    "coverage": "xyz_spatial_blocks_complete",
+    "save_point_vote_counts": true
+  },
+  "gates": {
+    "refine_vs_baseline": {
+      "foreground_iou_delta_min": 0.01,
+      "background_fpr_strictly_lower": true,
+      "precision_delta_min": 0.0,
+      "recall_delta_min": -0.03,
+      "a4noise_iou_delta_min": -0.01,
+      "a4noise_recall_delta_min": -0.03
+    },
+    "ablation": {
+      "full_iou_not_lower_than_each": true,
+      "full_fpr_not_higher_than_each": true,
+      "at_least_one_strict_improvement_per_ablation": true
+    },
+    "multiseed": [
+      42,
+      3407,
+      20260910
+    ]
+  },
+  "run": {
+    "variant": "baseline",
+    "output": "/root/autodl-tmp/underwater_seg_ptv3/results/ptv3/formal/seed42/baseline"
+  }
+}

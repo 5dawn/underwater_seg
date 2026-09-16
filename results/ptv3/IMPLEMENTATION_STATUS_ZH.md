@@ -21,4 +21,14 @@
 
 ## 当前状态
 
-2026-09-16 已转到 AutoDL Ubuntu 22.04.4 / RTX 5090 服务器完成官方 PTv3 环境与 baseline smoke。独立 `ptv3` 环境、官方固定 commit、standalone forward/backward、adapter B=4/N=4096、真实数据小样本拟合、checkpoint/resume、9-file val 5-vote 完整覆盖与 15 项测试均通过。historical test 未上传服务器。本轮按协议停止，尚未启动正式 10-epoch baseline。
+2026-09-16 已在 AutoDL Ubuntu 22.04.4 / RTX 5090 服务器完成正式训练接入与 seed 42 配对实验：
+
+- 独立训练入口支持 baseline/refine、配置冻结、数据哈希、公共初始化、best/last、严格恢复和独立评估。
+- 真实长度验证尾块、Morton 并列 XYZ 排序、CPU/CUDA RNG 隔离、下一批与下一步恢复一致性检查通过。
+- 17 项测试通过；训练内 best 与独立评估逐字节一致；A/B 前两批逐 epoch 指纹完全一致。
+- Baseline best 为 epoch 10：foreground IoU `0.221773`，Precision `0.271180`，Recall `0.548990`，Background FPR `0.083746`。
+- Refine best 为 epoch 9：foreground IoU `0.280962`，Precision `0.315173`，Recall `0.721323`，Background FPR `0.088961`。
+- Refine 的 IoU、Precision、Recall 改善，但 Background FPR 增加 `0.005215`，未满足“严格下降”的冻结门槛。
+- 按协议停止消融与多 seed，不放宽门槛。结论仅适用于当前 45/9 划分与 10 epochs 短预算。
+
+正式报告见 `results/ptv3/formal/seed42/PAIR_REPORT_ZH.md`。大型 checkpoint 保留在服务器，路径及 SHA256 见 `results/ptv3/formal/seed42/CHECKPOINT_SHA256.txt`。historical test 未上传、未使用。
