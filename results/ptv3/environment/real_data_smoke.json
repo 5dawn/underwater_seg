@@ -1,0 +1,64 @@
+{
+  "real_batch_step": {
+    "files": [
+      "a4noise_R1-D1-P1-S1-A4.npz",
+      "a4noise_R1-D1-P2-S1-A4.npz",
+      "normal_R1-D1-P1-S1-A1.npz",
+      "normal_R1-D1-P2-S1-A1.npz"
+    ],
+    "input_shape": [
+      4,
+      3,
+      4096
+    ],
+    "logits_shape": [
+      4,
+      2,
+      4096
+    ],
+    "voxel_counts": [
+      3563,
+      3670,
+      2889,
+      3202
+    ],
+    "unique_voxel_ratios": [
+      0.869873046875,
+      0.89599609375,
+      0.705322265625,
+      0.78173828125
+    ],
+    "ignore_points": 546,
+    "loss": 0.6153786778450012,
+    "finite_logits": true,
+    "finite_gradients": true,
+    "forward_seconds": 0.5627259209286422,
+    "backward_seconds": 0.48874259390868247,
+    "optimizer_step_seconds": 0.0625069160014391,
+    "peak_allocated_bytes": 1658022400,
+    "peak_reserved_bytes": 1944059904
+  },
+  "sanity_fit": {
+    "files": [
+      "a4noise_R1-D1-P1-S1-A4.npz",
+      "a4noise_R1-D1-P2-S1-A4.npz"
+    ],
+    "steps": 10,
+    "losses": [
+      1.2704815864562988,
+      0.2500324249267578,
+      0.21361558139324188,
+      0.130696639418602,
+      0.06386592239141464,
+      0.029404638335108757,
+      0.01400779653340578,
+      0.00814991444349289,
+      0.005665447562932968,
+      0.004242102615535259
+    ],
+    "initial_loss": 1.2704815864562988,
+    "final_loss": 0.004242102615535259,
+    "relative_decrease": 0.9966610278647425,
+    "loss_decreased": true
+  }
+}

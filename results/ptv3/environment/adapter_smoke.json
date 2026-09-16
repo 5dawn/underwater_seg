@@ -1,0 +1,41 @@
+{
+  "input_shape": [
+    4,
+    3,
+    4096
+  ],
+  "logits_shape": [
+    4,
+    2,
+    4096
+  ],
+  "voxel_counts": [
+    4083,
+    4091,
+    4089,
+    4089
+  ],
+  "voxel_size": 0.005,
+  "ignore_points": 532,
+  "loss": 0.7874687314033508,
+  "finite_logits": true,
+  "finite_gradients": true,
+  "parameter_count": 46154402,
+  "forward_seconds": 1.5665590721182525,
+  "backward_seconds": 1.176332999020815,
+  "optimizer_step_seconds": 0.06202917592599988,
+  "peak_allocated_bytes": 4510886912,
+  "peak_reserved_bytes": 5121245184,
+  "strict_checkpoint_reload": true,
+  "reload_max_abs_logit_difference": 0.0,
+  "eval_rng_restored_before_comparison": true,
+  "checkpoint_fields": [
+    "best_metric",
+    "config",
+    "epoch",
+    "model",
+    "optimizer",
+    "rng_state",
+    "scheduler"
+  ]
+}

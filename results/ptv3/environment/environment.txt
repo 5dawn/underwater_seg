@@ -1,0 +1,21 @@
+2026-09-16T09:48:24+08:00
+PRETTY_NAME="Ubuntu 22.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.4 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+Python 3.10.21
+torch 2.8.0+cu128
+torch_cuda 12.8
+cuda_available True
+gpu NVIDIA GeForce RTX 5090
+torch_scatter 2.1.2+pt28cu128
+spconv 2.3.8
+NVIDIA GeForce RTX 5090, 570.211.01, 32607 MiB

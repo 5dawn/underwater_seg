@@ -1,0 +1,96 @@
+{
+  "model": "official PointTransformerV3 detached implementation",
+  "input_feature": "normalized XYZ only",
+  "batch_size": 2,
+  "points_per_sample": 4096,
+  "total_points": 8192,
+  "output_feature_shape": [
+    8192,
+    64
+  ],
+  "decoder_feature_dim": 64,
+  "parameter_count": 46154272,
+  "loss": 3.0504512786865234,
+  "finite_output": true,
+  "finite_gradients": true,
+  "forward_seconds": 8.70728486101143,
+  "backward_seconds": 14.817434570053592,
+  "optimizer_step_seconds": 0.06346190487965941,
+  "peak_allocated_bytes": 3662801920,
+  "peak_reserved_bytes": 4332716032,
+  "torch": "2.8.0+cu128",
+  "torch_cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "model_config": {
+    "in_channels": 3,
+    "order": [
+      "z",
+      "z-trans",
+      "hilbert",
+      "hilbert-trans"
+    ],
+    "stride": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "enc_depths": [
+      2,
+      2,
+      2,
+      6,
+      2
+    ],
+    "enc_channels": [
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "enc_num_head": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "enc_patch_size": [
+      128,
+      128,
+      128,
+      128,
+      128
+    ],
+    "dec_depths": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "dec_channels": [
+      64,
+      64,
+      128,
+      256
+    ],
+    "dec_num_head": [
+      4,
+      4,
+      8,
+      16
+    ],
+    "dec_patch_size": [
+      128,
+      128,
+      128,
+      128
+    ],
+    "enable_flash": false,
+    "enable_rpe": false,
+    "upcast_attention": true,
+    "upcast_softmax": true,
+    "cls_mode": false
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "in_channels": 3,
+  "order": [
+    "z",
+    "z-trans",
+    "hilbert",
+    "hilbert-trans"
+  ],
+  "stride": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "enc_depths": [
+    2,
+    2,
+    2,
+    6,
+    2
+  ],
+  "enc_channels": [
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "enc_num_head": [
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "enc_patch_size": [
+    128,
+    128,
+    128,
+    128,
+    128
+  ],
+  "dec_depths": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "dec_channels": [
+    64,
+    64,
+    128,
+    256
+  ],
+  "dec_num_head": [
+    4,
+    4,
+    8,
+    16
+  ],
+  "dec_patch_size": [
+    128,
+    128,
+    128,
+    128
+  ],
+  "enable_flash": false,
+  "enable_rpe": false,
+  "upcast_attention": true,
+  "upcast_softmax": true,
+  "cls_mode": false
+}

@@ -1,0 +1,967 @@
+{
+  "scope": "train only; fixed 4096-point samples; labels unused",
+  "seed": 42,
+  "initial_voxel_size": 0.005,
+  "selected_voxel_size": 0.005,
+  "selection_reason": "neither frozen correction trigger fired",
+  "radius_p95_d16": 0.05208010460155825,
+  "overall": {
+    "input_points": {
+      "mean": 4096.0,
+      "median": 4096.0,
+      "p90": 4096.0,
+      "p99": 4096.0,
+      "min": 4096.0,
+      "max": 4096.0
+    },
+    "valid_voxels": {
+      "mean": 3130.3555555555554,
+      "median": 3151.0,
+      "p90": 3459.8,
+      "p99": 3622.92,
+      "min": 2407.0,
+      "max": 3670.0
+    },
+    "unique_voxel_ratio": {
+      "mean": 0.7642469618055555,
+      "median": 0.769287109375,
+      "p90": 0.844677734375,
+      "p99": 0.884501953125,
+      "min": 0.587646484375,
+      "max": 0.89599609375
+    },
+    "single_point_voxel_ratio": {
+      "mean": 0.771766353978051,
+      "median": 0.7742946743965149,
+      "p90": 0.8475053548812866,
+      "p99": 0.8842514467239381,
+      "min": 0.6015787124633789,
+      "max": 0.8967302441596985
+    },
+    "points_per_voxel_mean": {
+      "mean": 1.3174750751919218,
+      "median": 1.2999048233032227,
+      "p90": 1.4445985794067382,
+      "p99": 1.629724411964417,
+      "min": 1.1160763502120972,
+      "max": 1.7017033100128174
+    },
+    "points_per_voxel_median": {
+      "mean": 1.0,
+      "median": 1.0,
+      "p90": 1.0,
+      "p99": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "points_per_voxel_p90": {
+      "mean": 2.1555555555555554,
+      "median": 2.0,
+      "p90": 3.0,
+      "p99": 3.0,
+      "min": 2.0,
+      "max": 3.0
+    },
+    "points_per_voxel_p99": {
+      "mean": 3.8444444444444446,
+      "median": 4.0,
+      "p90": 5.0,
+      "p99": 5.0,
+      "min": 3.0,
+      "max": 5.0
+    },
+    "points_per_voxel_max": {
+      "mean": 6.288888888888889,
+      "median": 6.0,
+      "p90": 7.0,
+      "p99": 10.0,
+      "min": 4.0,
+      "max": 10.0
+    }
+  },
+  "per_scene": {
+    "a4noise": {
+      "input_points": {
+        "mean": 4096.0,
+        "median": 4096.0,
+        "p90": 4096.0,
+        "p99": 4096.0,
+        "min": 4096.0,
+        "max": 4096.0
+      },
+      "valid_voxels": {
+        "mean": 3616.5,
+        "median": 3616.5,
+        "p90": 3659.3,
+        "p99": 3668.93,
+        "min": 3563.0,
+        "max": 3670.0
+      },
+      "unique_voxel_ratio": {
+        "mean": 0.8829345703125,
+        "median": 0.8829345703125,
+        "p90": 0.8933837890625,
+        "p99": 0.89573486328125,
+        "min": 0.869873046875,
+        "max": 0.89599609375
+      },
+      "single_point_voxel_ratio": {
+        "mean": 0.8825497925281525,
+        "median": 0.8825497925281525,
+        "p90": 0.8938941538333893,
+        "p99": 0.8964466351270676,
+        "min": 0.8683693408966064,
+        "max": 0.8967302441596985
+      },
+      "points_per_voxel_mean": {
+        "mean": 1.1328346729278564,
+        "median": 1.1328346729278564,
+        "p90": 1.1462413311004638,
+        "p99": 1.1492578291893005,
+        "min": 1.1160763502120972,
+        "max": 1.1495929956436157
+      },
+      "points_per_voxel_median": {
+        "mean": 1.0,
+        "median": 1.0,
+        "p90": 1.0,
+        "p99": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "points_per_voxel_p90": {
+        "mean": 2.0,
+        "median": 2.0,
+        "p90": 2.0,
+        "p99": 2.0,
+        "min": 2.0,
+        "max": 2.0
+      },
+      "points_per_voxel_p99": {
+        "mean": 3.0,
+        "median": 3.0,
+        "p90": 3.0,
+        "p99": 3.0,
+        "min": 3.0,
+        "max": 3.0
+      },
+      "points_per_voxel_max": {
+        "mean": 4.5,
+        "median": 4.5,
+        "p90": 4.9,
+        "p99": 4.99,
+        "min": 4.0,
+        "max": 5.0
+      }
+    },
+    "normal": {
+      "input_points": {
+        "mean": 4096.0,
+        "median": 4096.0,
+        "p90": 4096.0,
+        "p99": 4096.0,
+        "min": 4096.0,
+        "max": 4096.0
+      },
+      "valid_voxels": {
+        "mean": 3196.909090909091,
+        "median": 3185.0,
+        "p90": 3438.0,
+        "p99": 3474.0,
+        "min": 2889.0,
+        "max": 3478.0
+      },
+      "unique_voxel_ratio": {
+        "mean": 0.7804953835227273,
+        "median": 0.777587890625,
+        "p90": 0.83935546875,
+        "p99": 0.84814453125,
+        "min": 0.705322265625,
+        "max": 0.84912109375
+      },
+      "single_point_voxel_ratio": {
+        "mean": 0.782600077715787,
+        "median": 0.7764521241188049,
+        "p90": 0.8411867618560791,
+        "p99": 0.8490410208702087,
+        "min": 0.7050882577896118,
+        "max": 0.8499137163162231
+      },
+      "points_per_voxel_mean": {
+        "mean": 1.2848637212406506,
+        "median": 1.286028265953064,
+        "p90": 1.357640027999878,
+        "p99": 1.4117764472961425,
+        "min": 1.1776883602142334,
+        "max": 1.4177916049957275
+      },
+      "points_per_voxel_median": {
+        "mean": 1.0,
+        "median": 1.0,
+        "p90": 1.0,
+        "p99": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "points_per_voxel_p90": {
+        "mean": 2.0,
+        "median": 2.0,
+        "p90": 2.0,
+        "p99": 2.0,
+        "min": 2.0,
+        "max": 2.0
+      },
+      "points_per_voxel_p99": {
+        "mean": 3.5454545454545454,
+        "median": 4.0,
+        "p90": 4.0,
+        "p99": 4.0,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "points_per_voxel_max": {
+        "mean": 6.090909090909091,
+        "median": 6.0,
+        "p90": 7.0,
+        "p99": 7.0,
+        "min": 5.0,
+        "max": 7.0
+      }
+    },
+    "poolbottom": {
+      "input_points": {
+        "mean": 4096.0,
+        "median": 4096.0,
+        "p90": 4096.0,
+        "p99": 4096.0,
+        "min": 4096.0,
+        "max": 4096.0
+      },
+      "valid_voxels": {
+        "mean": 3337.3,
+        "median": 3333.5,
+        "p90": 3464.4,
+        "p99": 3491.94,
+        "min": 3175.0,
+        "max": 3495.0
+      },
+      "unique_voxel_ratio": {
+        "mean": 0.8147705078125,
+        "median": 0.8138427734375,
+        "p90": 0.84580078125,
+        "p99": 0.8525244140625,
+        "min": 0.775146484375,
+        "max": 0.853271484375
+      },
+      "single_point_voxel_ratio": {
+        "mean": 0.8187353551387787,
+        "median": 0.8183122277259827,
+        "p90": 0.8493989706039429,
+        "p99": 0.8605622172355651,
+        "min": 0.7748031616210938,
+        "max": 0.8618025779724121
+      },
+      "points_per_voxel_mean": {
+        "mean": 1.2288516998291015,
+        "median": 1.2289199829101562,
+        "p90": 1.2860700368881226,
+        "p99": 1.2896778869628907,
+        "min": 1.1719599962234497,
+        "max": 1.2900787591934204
+      },
+      "points_per_voxel_median": {
+        "mean": 1.0,
+        "median": 1.0,
+        "p90": 1.0,
+        "p99": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "points_per_voxel_p90": {
+        "mean": 2.0,
+        "median": 2.0,
+        "p90": 2.0,
+        "p99": 2.0,
+        "min": 2.0,
+        "max": 2.0
+      },
+      "points_per_voxel_p99": {
+        "mean": 3.4,
+        "median": 3.0,
+        "p90": 4.0,
+        "p99": 4.0,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "points_per_voxel_max": {
+        "mean": 5.5,
+        "median": 5.5,
+        "p90": 6.0,
+        "p99": 6.0,
+        "min": 5.0,
+        "max": 6.0
+      }
+    },
+    "rack": {
+      "input_points": {
+        "mean": 4096.0,
+        "median": 4096.0,
+        "p90": 4096.0,
+        "p99": 4096.0,
+        "min": 4096.0,
+        "max": 4096.0
+      },
+      "valid_voxels": {
+        "mean": 2958.818181818182,
+        "median": 2936.0,
+        "p90": 3167.2,
+        "p99": 3210.54,
+        "min": 2407.0,
+        "max": 3216.0
+      },
+      "unique_voxel_ratio": {
+        "mean": 0.7223677201704546,
+        "median": 0.716796875,
+        "p90": 0.7732421875,
+        "p99": 0.7838232421875,
+        "min": 0.587646484375,
+        "max": 0.78515625
+      },
+      "single_point_voxel_ratio": {
+        "mean": 0.7349287244406614,
+        "median": 0.732965499162674,
+        "p90": 0.7785776197910309,
+        "p99": 0.7899541801214218,
+        "min": 0.6015787124633789,
+        "max": 0.7910447716712952
+      },
+      "points_per_voxel_mean": {
+        "mean": 1.3908495957201177,
+        "median": 1.395423173904419,
+        "p90": 1.4563080072402954,
+        "p99": 1.6673497450351713,
+        "min": 1.2736318111419678,
+        "max": 1.7017033100128174
+      },
+      "points_per_voxel_median": {
+        "mean": 1.0,
+        "median": 1.0,
+        "p90": 1.0,
+        "p99": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "points_per_voxel_p90": {
+        "mean": 2.3181818181818183,
+        "median": 2.0,
+        "p90": 3.0,
+        "p99": 3.0,
+        "min": 2.0,
+        "max": 3.0
+      },
+      "points_per_voxel_p99": {
+        "mean": 4.2727272727272725,
+        "median": 4.0,
+        "p90": 5.0,
+        "p99": 5.0,
+        "min": 3.0,
+        "max": 5.0
+      },
+      "points_per_voxel_max": {
+        "mean": 6.909090909090909,
+        "median": 7.0,
+        "p90": 9.0,
+        "p99": 10.0,
+        "min": 5.0,
+        "max": 10.0
+      }
+    }
+  },
+  "per_file": [
+    {
+      "input_points": 4096,
+      "valid_voxels": 3563,
+      "unique_voxel_ratio": 0.869873046875,
+      "single_point_voxel_ratio": 0.8683693408966064,
+      "points_per_voxel_mean": 1.1495929956436157,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 4,
+      "file": "a4noise_R1-D1-P1-S1-A4.npz",
+      "scene": "a4noise"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3670,
+      "unique_voxel_ratio": 0.89599609375,
+      "single_point_voxel_ratio": 0.8967302441596985,
+      "points_per_voxel_mean": 1.1160763502120972,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "a4noise_R1-D1-P2-S1-A4.npz",
+      "scene": "a4noise"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2889,
+      "unique_voxel_ratio": 0.705322265625,
+      "single_point_voxel_ratio": 0.7050882577896118,
+      "points_per_voxel_mean": 1.4177916049957275,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D1-P1-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3202,
+      "unique_voxel_ratio": 0.78173828125,
+      "single_point_voxel_ratio": 0.7873204350471497,
+      "points_per_voxel_mean": 1.279200553894043,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "normal_R1-D1-P2-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3117,
+      "unique_voxel_ratio": 0.760986328125,
+      "single_point_voxel_ratio": 0.7622714042663574,
+      "points_per_voxel_mean": 1.3140840530395508,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D1-P3-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3185,
+      "unique_voxel_ratio": 0.777587890625,
+      "single_point_voxel_ratio": 0.7764521241188049,
+      "points_per_voxel_mean": 1.286028265953064,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D1-P4-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3017,
+      "unique_voxel_ratio": 0.736572265625,
+      "single_point_voxel_ratio": 0.7335101366043091,
+      "points_per_voxel_mean": 1.357640027999878,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D1-P5-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3438,
+      "unique_voxel_ratio": 0.83935546875,
+      "single_point_voxel_ratio": 0.8411867618560791,
+      "points_per_voxel_mean": 1.1913903951644897,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 7,
+      "file": "normal_R1-D2-P1-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3478,
+      "unique_voxel_ratio": 0.84912109375,
+      "single_point_voxel_ratio": 0.8499137163162231,
+      "points_per_voxel_mean": 1.1776883602142334,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "normal_R1-D2-P2-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3334,
+      "unique_voxel_ratio": 0.81396484375,
+      "single_point_voxel_ratio": 0.8218356370925903,
+      "points_per_voxel_mean": 1.2285542488098145,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D2-P3-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3284,
+      "unique_voxel_ratio": 0.8017578125,
+      "single_point_voxel_ratio": 0.8078562617301941,
+      "points_per_voxel_mean": 1.247259497642517,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D2-P4-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3063,
+      "unique_voxel_ratio": 0.747802734375,
+      "single_point_voxel_ratio": 0.7571008801460266,
+      "points_per_voxel_mean": 1.33725106716156,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D3-P1-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3159,
+      "unique_voxel_ratio": 0.771240234375,
+      "single_point_voxel_ratio": 0.766065239906311,
+      "points_per_voxel_mean": 1.2966128587722778,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 6,
+      "file": "normal_R1-D3-P3-S1-A1.npz",
+      "scene": "normal"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3175,
+      "unique_voxel_ratio": 0.775146484375,
+      "single_point_voxel_ratio": 0.7748031616210938,
+      "points_per_voxel_mean": 1.2900787591934204,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "poolbottom_R1-D1-P1-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3235,
+      "unique_voxel_ratio": 0.789794921875,
+      "single_point_voxel_ratio": 0.7935085296630859,
+      "points_per_voxel_mean": 1.2661514282226562,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "poolbottom_R1-D1-P2-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3461,
+      "unique_voxel_ratio": 0.844970703125,
+      "single_point_voxel_ratio": 0.8480207920074463,
+      "points_per_voxel_mean": 1.183472990989685,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "poolbottom_R1-D1-P3-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3186,
+      "unique_voxel_ratio": 0.77783203125,
+      "single_point_voxel_ratio": 0.778719425201416,
+      "points_per_voxel_mean": 1.285624623298645,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 6,
+      "file": "poolbottom_R1-D1-P4-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3445,
+      "unique_voxel_ratio": 0.841064453125,
+      "single_point_voxel_ratio": 0.8409289121627808,
+      "points_per_voxel_mean": 1.1889694929122925,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "poolbottom_R1-D1-P5-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3251,
+      "unique_voxel_ratio": 0.793701171875,
+      "single_point_voxel_ratio": 0.8062134981155396,
+      "points_per_voxel_mean": 1.2599200010299683,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "poolbottom_R1-D2-P1-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3374,
+      "unique_voxel_ratio": 0.82373046875,
+      "single_point_voxel_ratio": 0.8221695423126221,
+      "points_per_voxel_mean": 1.2139893770217896,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "poolbottom_R1-D2-P2-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3495,
+      "unique_voxel_ratio": 0.853271484375,
+      "single_point_voxel_ratio": 0.8618025779724121,
+      "points_per_voxel_mean": 1.1719599962234497,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "poolbottom_R1-D2-P3-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3458,
+      "unique_voxel_ratio": 0.84423828125,
+      "single_point_voxel_ratio": 0.8467321991920471,
+      "points_per_voxel_mean": 1.184499740600586,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "poolbottom_R1-D2-P4-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3293,
+      "unique_voxel_ratio": 0.803955078125,
+      "single_point_voxel_ratio": 0.8144549131393433,
+      "points_per_voxel_mean": 1.243850588798523,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "poolbottom_R1-D3-P1-S1-A1.npz",
+      "scene": "poolbottom"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2407,
+      "unique_voxel_ratio": 0.587646484375,
+      "single_point_voxel_ratio": 0.6015787124633789,
+      "points_per_voxel_mean": 1.7017033100128174,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 10,
+      "file": "rack_R1-D1-P1-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3190,
+      "unique_voxel_ratio": 0.77880859375,
+      "single_point_voxel_ratio": 0.7742946743965149,
+      "points_per_voxel_mean": 1.2840125560760498,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 3.0,
+      "points_per_voxel_max": 5,
+      "file": "rack_R1-D1-P2-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3146,
+      "unique_voxel_ratio": 0.76806640625,
+      "single_point_voxel_ratio": 0.7784488201141357,
+      "points_per_voxel_mean": 1.3019707202911377,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "rack_R1-D1-P3-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3216,
+      "unique_voxel_ratio": 0.78515625,
+      "single_point_voxel_ratio": 0.7910447716712952,
+      "points_per_voxel_mean": 1.2736318111419678,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 5,
+      "file": "rack_R1-D1-P4-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2663,
+      "unique_voxel_ratio": 0.650146484375,
+      "single_point_voxel_ratio": 0.6736763119697571,
+      "points_per_voxel_mean": 1.5381149053573608,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 10,
+      "file": "rack_R1-D1-P5-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2831,
+      "unique_voxel_ratio": 0.691162109375,
+      "single_point_voxel_ratio": 0.7138820290565491,
+      "points_per_voxel_mean": 1.446838617324829,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R1-D2-P1-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2842,
+      "unique_voxel_ratio": 0.69384765625,
+      "single_point_voxel_ratio": 0.7178043723106384,
+      "points_per_voxel_mean": 1.441238522529602,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 9,
+      "file": "rack_R1-D2-P2-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2884,
+      "unique_voxel_ratio": 0.7041015625,
+      "single_point_voxel_ratio": 0.7208737730979919,
+      "points_per_voxel_mean": 1.4202497005462646,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R1-D2-P3-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2827,
+      "unique_voxel_ratio": 0.690185546875,
+      "single_point_voxel_ratio": 0.7092323899269104,
+      "points_per_voxel_mean": 1.4488857984542847,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 6,
+      "file": "rack_R1-D2-P4-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2981,
+      "unique_voxel_ratio": 0.727783203125,
+      "single_point_voxel_ratio": 0.7410265207290649,
+      "points_per_voxel_mean": 1.3740355968475342,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R1-D3-P1-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3139,
+      "unique_voxel_ratio": 0.766357421875,
+      "single_point_voxel_ratio": 0.7785919308662415,
+      "points_per_voxel_mean": 1.3048741817474365,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "rack_R1-D3-P3-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3131,
+      "unique_voxel_ratio": 0.764404296875,
+      "single_point_voxel_ratio": 0.764931321144104,
+      "points_per_voxel_mean": 1.3082082271575928,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "rack_R2-D1-P1-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3103,
+      "unique_voxel_ratio": 0.757568359375,
+      "single_point_voxel_ratio": 0.7615211009979248,
+      "points_per_voxel_mean": 1.3200129270553589,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "rack_R2-D1-P2-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3151,
+      "unique_voxel_ratio": 0.769287109375,
+      "single_point_voxel_ratio": 0.768327534198761,
+      "points_per_voxel_mean": 1.2999048233032227,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 5,
+      "file": "rack_R2-D1-P3-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3169,
+      "unique_voxel_ratio": 0.773681640625,
+      "single_point_voxel_ratio": 0.7731145620346069,
+      "points_per_voxel_mean": 1.292521357536316,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 6,
+      "file": "rack_R2-D1-P4-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2811,
+      "unique_voxel_ratio": 0.686279296875,
+      "single_point_voxel_ratio": 0.6926360726356506,
+      "points_per_voxel_mean": 1.4571326971054077,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 3.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R2-D1-P5-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2876,
+      "unique_voxel_ratio": 0.7021484375,
+      "single_point_voxel_ratio": 0.7127955555915833,
+      "points_per_voxel_mean": 1.4242002964019775,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R2-D2-P1-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2879,
+      "unique_voxel_ratio": 0.702880859375,
+      "single_point_voxel_ratio": 0.724904477596283,
+      "points_per_voxel_mean": 1.4227162599563599,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 9,
+      "file": "rack_R2-D2-P2-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2891,
+      "unique_voxel_ratio": 0.705810546875,
+      "single_point_voxel_ratio": 0.7205119132995605,
+      "points_per_voxel_mean": 1.4168107509613037,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R2-D2-P3-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2846,
+      "unique_voxel_ratio": 0.69482421875,
+      "single_point_voxel_ratio": 0.7101194858551025,
+      "points_per_voxel_mean": 1.4392129182815552,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 5.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R2-D2-P4-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 2987,
+      "unique_voxel_ratio": 0.729248046875,
+      "single_point_voxel_ratio": 0.7532641291618347,
+      "points_per_voxel_mean": 1.371275544166565,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R2-D3-P1-S1-A1.npz",
+      "scene": "rack"
+    },
+    {
+      "input_points": 4096,
+      "valid_voxels": 3124,
+      "unique_voxel_ratio": 0.7626953125,
+      "single_point_voxel_ratio": 0.7858514785766602,
+      "points_per_voxel_mean": 1.3111395835876465,
+      "points_per_voxel_median": 1.0,
+      "points_per_voxel_p90": 2.0,
+      "points_per_voxel_p99": 4.0,
+      "points_per_voxel_max": 7,
+      "file": "rack_R2-D3-P3-S1-A1.npz",
+      "scene": "rack"
+    }
+  ]
+}

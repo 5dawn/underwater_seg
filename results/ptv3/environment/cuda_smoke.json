@@ -1,0 +1,13 @@
+{
+  "torch": "2.8.0+cu128",
+  "torch_cuda": "12.8",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "driver": "570.211.01",
+  "gpu_memory_mib": 32607,
+  "torch_scatter": "2.1.2+pt28cu128",
+  "torch_scatter_forward_backward": true,
+  "spconv": "2.3.8",
+  "spconv_wheel_cuda": "12.6",
+  "spconv_sparse_convolution": true
+}
